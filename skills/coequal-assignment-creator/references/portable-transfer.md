@@ -15,6 +15,7 @@ Use this guide to transfer the Canvas-to-CoEqual workflow to another Codex accou
 - Benchmark review rules
 - Stage-by-stage verification
 - Error taxonomy and decision levels
+- Host-model escalation input/output contract
 - Local recovery artifact pattern
 
 ## Account-Specific Configuration
@@ -67,6 +68,18 @@ Canvas must remain read-only. Stop before final CoEqual creation.
 ```
 
 The agent must adapt browser actions to its own tools, but the safety and verification rules stay the same.
+
+## Host Model Escalation
+
+This workflow does not depend on a separate model. The model running the workflow handles escalation.
+
+- In Claude, Claude is the escalation agent.
+- In Codex or ChatGPT, Codex/ChatGPT is the escalation agent.
+- In another agent environment, that agent is the escalation agent.
+
+For every failure, the host model must identify the stage, observed problem, source evidence, risk area, safe actions, forbidden actions, decision level, next action, and whether user input is required.
+
+The host model may continue alone only when the fallback does not change grading truth or Canvas integrity. If rubric values, source truth, privacy, Canvas state, or final CoEqual creation are involved, it must stop and ask the user.
 
 ## Verification Before First Use
 

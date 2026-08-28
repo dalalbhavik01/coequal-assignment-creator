@@ -19,6 +19,7 @@ This repository is the operating playbook for a browser-capable AI agent that pr
 - Writes instructor grading notes that are lenient but rubric-bound.
 - Reviews CoEqual benchmark answers for unsupported claims.
 - Escalates errors through the model currently running the workflow, using a structured decision contract.
+- Uses a framework-neutral agentic architecture: dynamic state, guardrails, checkpoints, specialist agents, and human-in-the-loop gates.
 - Stops before final CoEqual creation until the user confirms.
 - Records a decision log and recovery artifacts for every run.
 
@@ -96,6 +97,8 @@ flowchart TD
 
 See [docs/model-escalation.md](docs/model-escalation.md) for the model-agnostic escalation contract used by Codex, ChatGPT, Claude, or another host agent.
 
+See [docs/agentic-architecture.md](docs/agentic-architecture.md) for the portable framework pattern and dynamic state model.
+
 ## Stage Verification
 
 Every run verifies:
@@ -124,6 +127,7 @@ Every run verifies:
 |   |-- portable-workflow.md
 |   |-- verification-checklist.md
 |   |-- error-handling.md
+|   |-- agentic-architecture.md
 |   |-- model-escalation.md
 |   `-- failure-drills.md
 `-- skills/

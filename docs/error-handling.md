@@ -21,6 +21,16 @@ Escalation does not mean guessing or overriding safeguards. The host model must 
 
 Use [model-escalation.md](model-escalation.md) for the exact input/output contract.
 
+## Canvas Read-Only Guardrail
+
+Before every Canvas action, classify the action as read-only or mutation-risk.
+
+Allowed Canvas actions are opening pages, scrolling, expanding read-only content, viewing rubrics, opening/downloading directed material, and copying visible text.
+
+Forbidden Canvas actions are editing, saving, publishing, replying, grading, uploading, deleting, changing due dates, changing modules, changing rubrics, changing assignments, changing discussions, changing pages, changing SpeedGrader state, or submitting Canvas forms.
+
+If an action is not clearly read-only, treat it as L3 for that action and stop.
+
 ## General Error Taxonomy
 
 | Error class | Examples | Default response |

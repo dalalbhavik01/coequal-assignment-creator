@@ -18,6 +18,7 @@ Canvas must remain read-only. Stop before final CoEqual creation.
 - Do not hallucinate assignment requirements, article details, rubric language, grading rules, or course material.
 - Preserve Canvas rubric criteria, rating labels, descriptions, and point values exactly.
 - Verify every stage by reading values back from the source or target page.
+- When an error occurs, the model currently running the workflow handles escalation through structured decision levels. Claude handles it when running in Claude; Codex/ChatGPT handles it when running in Codex/ChatGPT.
 
 ## Dynamic Inputs
 
@@ -95,6 +96,37 @@ Canvas must remain read-only. Stop before final CoEqual creation.
 | L1 | Safe fallback | Continue and record fallback. |
 | L2 | User decision needed | Stop and ask. |
 | L3 | Hard stop | Stop because continuing risks Canvas, grading accuracy, privacy, or source truth. |
+
+## Model Escalation Contract
+
+The workflow does not require a separate external model. The host model is the escalation agent.
+
+When something goes wrong, pass the problem into this decision structure:
+
+```json
+{
+  "stage": "[workflow stage]",
+  "observed_problem": "[what failed]",
+  "source_evidence": "[what is verified]",
+  "risk_area": "[canvas_integrity | rubric_accuracy | source_truth | privacy | coequal_creation | browser_session]",
+  "available_safe_actions": ["[safe option]"],
+  "forbidden_actions": ["edit Canvas", "invent missing content", "change rubric values silently"]
+}
+```
+
+The host model must return:
+
+```json
+{
+  "decision_level": "L0 | L1 | L2 | L3",
+  "decision": "[continue | retry_read_only | use_safe_fallback | ask_user | hard_stop]",
+  "reason": "[evidence-grounded reason]",
+  "next_action": "[specific next action]",
+  "canvas_integrity_preserved": true,
+  "requires_user_input": true,
+  "user_question": "[exact question to ask, or null]"
+}
+```
 
 ## Output Contract
 

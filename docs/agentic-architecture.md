@@ -157,3 +157,9 @@ If this becomes a coded product later, implement it first as a LangGraph-style s
 If staying inside OpenAI/Codex, model it after OpenAI Agents SDK guardrails, tracing, and handoffs.
 
 If transferring to Claude, paste the portable workflow plus the model-escalation contract; Claude becomes the host escalation agent and must follow the same state, guardrail, and verification rules.
+
+## Supporting Files
+
+- [canvas-read-only-policy.md](canvas-read-only-policy.md): exact Canvas action rules.
+- [comprehensive-error-handling-matrix.md](comprehensive-error-handling-matrix.md): failure classes, decision levels, safe responses, and forbidden responses.
+- [run-state-schema.json](run-state-schema.json): portable state schema for coded or no-code implementations.

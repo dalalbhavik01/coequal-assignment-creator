@@ -18,6 +18,7 @@ This repository is the operating playbook for a browser-capable AI agent that pr
 - Creates source-grounded course material context from accessible readings.
 - Writes instructor grading notes that are lenient but rubric-bound.
 - Reviews CoEqual benchmark answers for unsupported claims.
+- Escalates errors through the model currently running the workflow, using a structured decision contract.
 - Stops before final CoEqual creation until the user confirms.
 - Records a decision log and recovery artifacts for every run.
 
@@ -93,6 +94,8 @@ flowchart TD
 | L2 | User decision needed | Stop and ask. |
 | L3 | Hard stop | Stop because continuing risks Canvas, grading accuracy, privacy, or source truth. |
 
+See [docs/model-escalation.md](docs/model-escalation.md) for the model-agnostic escalation contract used by Codex, ChatGPT, Claude, or another host agent.
+
 ## Stage Verification
 
 Every run verifies:
@@ -121,6 +124,7 @@ Every run verifies:
 |   |-- portable-workflow.md
 |   |-- verification-checklist.md
 |   |-- error-handling.md
+|   |-- model-escalation.md
 |   `-- failure-drills.md
 `-- skills/
     `-- coequal-assignment-creator/

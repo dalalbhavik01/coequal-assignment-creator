@@ -1,0 +1,80 @@
+{
+  "schema_name": "coequal_assignment_creator_run_state",
+  "schema_version": "1.0.0",
+  "stable_defaults_allowed": [
+    "coequal_course_url"
+  ],
+  "dynamic_every_run": [
+    "canvas_url",
+    "assignment.title",
+    "assignment.type",
+    "assignment.prompt",
+    "assignment.submission_requirements",
+    "assignment.due_structure",
+    "assignment.total_points",
+    "rubric.criteria",
+    "rubric.ratings",
+    "rubric.total_points",
+    "course_material.links_found",
+    "course_material.accessible_sources",
+    "course_material.summary",
+    "coequal_setup.fields_entered",
+    "qa",
+    "decision_log"
+  ],
+  "state": {
+    "canvas_url": null,
+    "coequal_course_url": null,
+    "assignment": {
+      "title": null,
+      "type": null,
+      "prompt": null,
+      "submission_requirements": null,
+      "due_structure": null,
+      "total_points": null
+    },
+    "rubric": {
+      "criteria": [],
+      "ratings": [],
+      "total_points": null,
+      "exact_values_only": true,
+      "scores_between_rubric_levels_allowed": false
+    },
+    "course_material": {
+      "links_found": [],
+      "accessible_sources": [],
+      "summary": null,
+      "limitations": []
+    },
+    "coequal_setup": {
+      "target_course_verified": false,
+      "fields_entered": {},
+      "readback_verified": false,
+      "rubric_total_verified": false,
+      "created": false,
+      "created_url": null
+    },
+    "qa": {
+      "canvas_read_only_verified": false,
+      "canvas_action_gate_passed": false,
+      "assignment_verified": false,
+      "rubric_verified": false,
+      "course_material_verified": false,
+      "coequal_verified": false,
+      "benchmark_verified": false,
+      "final_user_confirmation": false
+    },
+    "decision_log": []
+  },
+  "decision_log_item": {
+    "stage": null,
+    "observed_problem": null,
+    "risk_area": null,
+    "decision_level": null,
+    "decision": null,
+    "reason": null,
+    "next_action": null,
+    "canvas_integrity_preserved": true,
+    "requires_user_input": false
+  }
+}

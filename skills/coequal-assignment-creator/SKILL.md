@@ -43,6 +43,8 @@ Before running browser actions for an actual assignment creation request, read:
 
 - [Workflow](references/workflow.md)
 - [Error Handling](references/error-handling.md)
+- [Canvas Read-Only Policy](references/canvas-read-only-policy.md)
+- [Comprehensive Error Handling Matrix](references/comprehensive-error-handling-matrix.md)
 
 If the user asks to test, simulate, audit, or improve failure handling, also read:
 
@@ -51,6 +53,10 @@ If the user asks to test, simulate, audit, or improve failure handling, also rea
 If the user asks to transfer this workflow to another Codex account, Claude account, or generic agent environment, also read:
 
 - [Portable Transfer Guide](references/portable-transfer.md)
+
+When implementing this as a coded or semi-coded workflow, use:
+
+- [Run State Schema](references/run-state-schema.json)
 
 Then perform the workflow end to end:
 

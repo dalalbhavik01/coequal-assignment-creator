@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="700" viewBox="0 0 1100 700" role="img" aria-labelledby="title desc">
+  <title id="title">Canvas to CoEqual Assignment Creation Workflow</title>
+  <desc id="desc">Read-only Canvas extraction flows into source-grounded course material, exact rubric mapping, CoEqual setup, final QA, and user confirmation before creation.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#4f6f8f"/>
+    </marker>
+    <style>
+      .bg { fill: #f8fafc; }
+      .title { font: 700 28px Arial, sans-serif; fill: #172033; }
+      .subtitle { font: 400 15px Arial, sans-serif; fill: #516070; }
+      .box { fill: #ffffff; stroke: #c9d6e2; stroke-width: 2; rx: 12; }
+      .safe { fill: #eef8f1; stroke: #50a267; }
+      .warn { fill: #fff7e8; stroke: #d69a25; }
+      .gate { fill: #f5f0ff; stroke: #8268c8; }
+      .text { font: 700 16px Arial, sans-serif; fill: #182235; }
+      .small { font: 400 13px Arial, sans-serif; fill: #536173; }
+      .arrow { stroke: #4f6f8f; stroke-width: 2.5; fill: none; marker-end: url(#arrow); }
+      .rule { font: 700 14px Arial, sans-serif; fill: #26653a; }
+      .stop { font: 700 14px Arial, sans-serif; fill: #9a5b00; }
+    </style>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1100" height="700"/>
+  <text class="title" x="550" y="45" text-anchor="middle">CoEqual Assignment Creator</text>
+  <text class="subtitle" x="550" y="72" text-anchor="middle">A read-only Canvas to CoEqual workflow with exact rubric mapping and staged verification</text>
+
+  <rect class="box" x="55" y="125" width="210" height="88"/>
+  <text class="text" x="160" y="158" text-anchor="middle">1. Trigger</text>
+  <text class="small" x="160" y="184" text-anchor="middle">\createAssignment</text>
+  <text class="small" x="160" y="202" text-anchor="middle">Canvas link</text>
+
+  <rect class="safe" x="330" y="125" width="210" height="88"/>
+  <text class="text" x="435" y="158" text-anchor="middle">2. Canvas Read</text>
+  <text class="small" x="435" y="184" text-anchor="middle">Prompt, requirements,</text>
+  <text class="small" x="435" y="202" text-anchor="middle">rubric, total points</text>
+
+  <rect class="box" x="605" y="125" width="210" height="88"/>
+  <text class="text" x="710" y="158" text-anchor="middle">3. Course Material</text>
+  <text class="small" x="710" y="184" text-anchor="middle">Summarize only from</text>
+  <text class="small" x="710" y="202" text-anchor="middle">accessible sources</text>
+
+  <rect class="box" x="880" y="125" width="170" height="88"/>
+  <text class="text" x="965" y="158" text-anchor="middle">4. Records</text>
+  <text class="small" x="965" y="184" text-anchor="middle">Requirements,</text>
+  <text class="small" x="965" y="202" text-anchor="middle">QA, decisions</text>
+
+  <path class="arrow" d="M265 169 L330 169"/>
+  <path class="arrow" d="M540 169 L605 169"/>
+  <path class="arrow" d="M815 169 L880 169"/>
+
+  <rect class="box" x="55" y="315" width="210" height="88"/>
+  <text class="text" x="160" y="348" text-anchor="middle">5. CoEqual Setup</text>
+  <text class="small" x="160" y="374" text-anchor="middle">Title, points, type,</text>
+  <text class="small" x="160" y="392" text-anchor="middle">grading approach</text>
+
+  <rect class="box" x="330" y="315" width="210" height="88"/>
+  <text class="text" x="435" y="348" text-anchor="middle">6. Rubric Map</text>
+  <text class="small" x="435" y="374" text-anchor="middle">Exact labels, text,</text>
+  <text class="small" x="435" y="392" text-anchor="middle">and point values</text>
+
+  <rect class="box" x="605" y="315" width="210" height="88"/>
+  <text class="text" x="710" y="348" text-anchor="middle">7. Notes + Benchmark</text>
+  <text class="small" x="710" y="374" text-anchor="middle">Lenient, rubric-bound,</text>
+  <text class="small" x="710" y="392" text-anchor="middle">no hallucinations</text>
+
+  <rect class="gate" x="880" y="315" width="170" height="88"/>
+  <text class="text" x="965" y="348" text-anchor="middle">8. Final QA</text>
+  <text class="small" x="965" y="374" text-anchor="middle">Read back every</text>
+  <text class="small" x="965" y="392" text-anchor="middle">critical field</text>
+
+  <path class="arrow" d="M965 213 C965 260 160 260 160 315"/>
+  <path class="arrow" d="M265 359 L330 359"/>
+  <path class="arrow" d="M540 359 L605 359"/>
+  <path class="arrow" d="M815 359 L880 359"/>
+
+  <rect class="gate" x="355" y="505" width="390" height="98"/>
+  <text class="text" x="550" y="540" text-anchor="middle">User Confirmation Gate</text>
+  <text class="small" x="550" y="566" text-anchor="middle">Stop before final CoEqual creation.</text>
+  <text class="small" x="550" y="586" text-anchor="middle">Create only after explicit user approval.</text>
+  <path class="arrow" d="M965 403 C965 470 550 470 550 505"/>
+
+  <rect class="safe" x="75" y="540" width="210" height="58"/>
+  <text class="rule" x="180" y="565" text-anchor="middle">Canvas stays read-only</text>
+  <text class="small" x="180" y="585" text-anchor="middle">No edit, save, grade, upload</text>
+
+  <rect class="warn" x="815" y="540" width="210" height="58"/>
+  <text class="stop" x="920" y="565" text-anchor="middle">Stop and ask</text>
+  <text class="small" x="920" y="585" text-anchor="middle">If rubric/source truth changes</text>
+</svg>

@@ -37,6 +37,16 @@ Canvas must remain read-only. Stop before final CoEqual creation.
 }
 ```
 
+## Agentic Runtime Pattern
+
+Use a framework-neutral state machine:
+
+- Dynamic state: Canvas URL, assignment fields, rubric, course material, CoEqual setup, QA, and decision log.
+- Guardrails: classify every Canvas action before doing it; allow only read-only actions.
+- Checkpoints: record source data after Canvas extraction, course material grounding, rubric mapping, CoEqual setup, benchmark review, and final QA.
+- Specialist agents: use subagents for Canvas extraction, course material grounding, rubric QA, benchmark review, and final verification when the assignment is complex.
+- Human-in-the-loop gates: ask the user when rubric/source truth, Canvas integrity, privacy, or final creation is affected.
+
 ## Workflow
 
 1. Preflight:

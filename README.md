@@ -65,26 +65,35 @@ CoEqual can be prepared, but the final `Create assignment` action requires expli
 The visual diagram above is the easiest view. The editable Mermaid source is also kept in [docs/workflow-diagram.mmd](docs/workflow-diagram.mmd).
 
 ```mermaid
-flowchart TD
-    A["Trigger: \\createAssignment Canvas URL"] --> B["Preflight verification"]
-    B --> C["Canvas extraction<br/>read-only only"]
-    C --> D{"Directed material accessible?"}
-    D -->|Yes| E["Source-grounded course material summary"]
-    D -->|No| F["Canvas-grounded material only<br/>log limitation"]
-    E --> G["Local recovery records"]
-    F --> G
-    G --> H["CoEqual setup fields"]
-    H --> I["Exact Canvas rubric mapping"]
-    I --> J["Instructor grading notes"]
-    J --> K["Benchmark review and cleanup"]
-    K --> L["Final QA gate"]
-    L --> M{"User confirms<br/>Create assignment?"}
-    M -->|Yes| N["Create assignment in CoEqual"]
-    M -->|No| O["Stop prepared<br/>no final side effect"]
+flowchart LR
+    A["Trigger<br/>\\createAssignment + Canvas URL"] --> B["Preflight<br/>CoEqual default + dynamic run state"]
+    B --> C{"Canvas Action Gate<br/>before every Canvas action"}
+    C -->|read-only safe| D["Canvas Reader<br/>prompt, requirements, rubric, links"]
+    C -->|mutation risk| X["L3 Hard Stop<br/>ask for read-only source"]
 
-    C -. "Canvas mutation risk" .-> X["Hard stop"]
-    I -. "Rubric mismatch" .-> Y["Ask user"]
-    K -. "Unsupported benchmark claim" .-> Z["Rewrite from verified sources"]
+    D --> E{"Directed material<br/>accessible read-only?"}
+    E -->|yes| F["Course Material Grounder<br/>source-grounded gist only"]
+    E -->|no| G["Record limitation<br/>do not invent material"]
+    F --> H["Recovery Record<br/>run-state schema + QA log"]
+    G --> H
+
+    H --> I["CoEqual Builder<br/>setup fields"]
+    I --> J["Rubric Mapper<br/>exact criteria, labels, descriptions, values"]
+    J --> K["Instructor Notes<br/>lenient + rubric-bound"]
+    K --> L["Benchmark Reviewer<br/>remove unsupported claims"]
+    L --> M{"Final QA Gate<br/>readback + duplicate check"}
+
+    M -->|verified| N{"User confirms<br/>Create assignment?"}
+    M -->|unverified| Y["Host Model Escalation<br/>classify L1/L2/L3"]
+    Y -->|safe fallback| H
+    Y -->|user decision| Z["Ask user<br/>do not guess"]
+
+    N -->|yes| O["Create in CoEqual<br/>record URL"]
+    N -->|no| P["Stop prepared<br/>no final side effect"]
+
+    D -. "Canvas remains read-only" .-> C
+    J -. "no rounding or in-between scores" .-> M
+    L -. "benchmark is example, not answer key" .-> M
 ```
 
 ## Decision Levels

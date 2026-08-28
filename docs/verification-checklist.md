@@ -6,9 +6,19 @@ Use this checklist on every Canvas-to-CoEqual assignment run.
 
 - [ ] Canvas URL captured.
 - [ ] CoEqual course URL captured.
+- [ ] Confirmed CoEqual course URL is the only stable default.
+- [ ] Confirmed assignment details, rubric, course material, and setup fields will be dynamic for this run.
 - [ ] Canvas policy set to read-only.
 - [ ] CoEqual policy set to prepare and stop before final creation.
 - [ ] Output/recovery location available.
+
+## Canvas Action Gate
+
+- [ ] Every Canvas action classified before execution.
+- [ ] Action is clearly read-only.
+- [ ] No Canvas form submission planned.
+- [ ] No Canvas edit/save/post/publish/grade/upload/delete action planned.
+- [ ] Risky Canvas controls avoided.
 
 ## Canvas Extraction
 
@@ -94,6 +104,6 @@ Use this checklist on every Canvas-to-CoEqual assignment run.
 - [ ] Final QA summary prepared.
 - [ ] Canvas integrity checked again.
 - [ ] Decision log complete.
+- [ ] Comprehensive error matrix checked for unresolved L2/L3 issues.
 - [ ] User asked before final Create assignment.
 - [ ] No final CoEqual creation without confirmation.
-

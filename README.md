@@ -4,6 +4,12 @@ A portable agentic workflow for creating CoEqual assignments from Canvas assignm
 
 This project packages a reusable workflow, Codex skill, portable prompt, and verification checklist for converting Canvas assignment/discussion pages into CoEqual assignments with exact rubric preservation, source-grounded course material, and staged QA before final creation.
 
+## At A Glance
+
+![Canvas to CoEqual workflow](docs/workflow-diagram.svg)
+
+This repository is the operating playbook for a browser-capable AI agent that prepares CoEqual assignments from Canvas links. The workflow reads Canvas only, extracts assignment requirements and rubrics exactly, uses accessible course material without inventing content, fills CoEqual, verifies every critical field, and stops before final creation until the user confirms.
+
 ## What It Does
 
 - Extracts Canvas assignment requirements without editing Canvas.
@@ -52,6 +58,8 @@ The workflow must not:
 CoEqual can be prepared, but the final `Create assignment` action requires explicit user confirmation.
 
 ## Workflow Diagram
+
+The visual diagram above is the easiest view. The editable Mermaid source is also kept in [docs/workflow-diagram.mmd](docs/workflow-diagram.mmd).
 
 ```mermaid
 flowchart TD

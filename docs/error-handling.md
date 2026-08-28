@@ -13,6 +13,14 @@ When uncertain, stop and ask. Do not guess, invent, round, or edit Canvas.
 
 Use L1 only when the fallback does not change grading truth. Use L2 or L3 when the issue affects rubric values, source accuracy, Canvas integrity, privacy, or final creation.
 
+## Host Model Escalation
+
+The model currently running this workflow is responsible for smart error handling. If the workflow runs in Claude, Claude applies the decision levels. If it runs in Codex or ChatGPT, Codex/ChatGPT applies them.
+
+Escalation does not mean guessing or overriding safeguards. The host model must classify the issue, choose the safest allowed action, record the decision, and ask the user when the issue affects Canvas integrity, rubric truth, source accuracy, privacy, or final CoEqual creation.
+
+Use [model-escalation.md](model-escalation.md) for the exact input/output contract.
+
 ## General Error Taxonomy
 
 | Error class | Examples | Default response |

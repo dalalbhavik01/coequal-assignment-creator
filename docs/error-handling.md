@@ -31,6 +31,10 @@ Forbidden Canvas actions are editing, saving, publishing, replying, grading, upl
 
 If an action is not clearly read-only, treat it as L3 for that action and stop.
 
+For the full policy, use [canvas-read-only-policy.md](canvas-read-only-policy.md).
+
+For broader recovery cases, use [comprehensive-error-handling-matrix.md](comprehensive-error-handling-matrix.md).
+
 ## General Error Taxonomy
 
 | Error class | Examples | Default response |

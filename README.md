@@ -20,6 +20,7 @@ This repository is the operating playbook for a browser-capable AI agent that pr
 - Reviews CoEqual benchmark answers for unsupported claims.
 - Escalates errors through the model currently running the workflow, using a structured decision contract.
 - Uses a framework-neutral agentic architecture: dynamic state, guardrails, checkpoints, specialist agents, and human-in-the-loop gates.
+- Applies a comprehensive error matrix and a Canvas action gate before every Canvas interaction.
 - Stops before final CoEqual creation until the user confirms.
 - Records a decision log and recovery artifacts for every run.
 
@@ -99,6 +100,8 @@ See [docs/model-escalation.md](docs/model-escalation.md) for the model-agnostic 
 
 See [docs/agentic-architecture.md](docs/agentic-architecture.md) for the portable framework pattern and dynamic state model.
 
+See [docs/canvas-read-only-policy.md](docs/canvas-read-only-policy.md) and [docs/comprehensive-error-handling-matrix.md](docs/comprehensive-error-handling-matrix.md) for the full safety and recovery rules.
+
 ## Stage Verification
 
 Every run verifies:
@@ -128,7 +131,10 @@ Every run verifies:
 |   |-- verification-checklist.md
 |   |-- error-handling.md
 |   |-- agentic-architecture.md
+|   |-- canvas-read-only-policy.md
+|   |-- comprehensive-error-handling-matrix.md
 |   |-- model-escalation.md
+|   |-- run-state-schema.json
 |   `-- failure-drills.md
 `-- skills/
     `-- coequal-assignment-creator/
@@ -136,7 +142,10 @@ Every run verifies:
         `-- references/
             |-- workflow.md
             |-- error-handling.md
+            |-- canvas-read-only-policy.md
+            |-- comprehensive-error-handling-matrix.md
             |-- failure-drills.md
+            |-- run-state-schema.json
             `-- portable-transfer.md
 ```
 

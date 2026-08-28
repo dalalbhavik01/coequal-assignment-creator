@@ -1,0 +1,15 @@
+{
+  "default_coequal_course_url": "https://app.coequal.io/courses/YOUR-COURSE-ID",
+  "default_output_root": "outputs",
+  "canvas_policy": "read_only",
+  "coequal_policy": "prepare_and_stop_before_create",
+  "grading_defaults": {
+    "approach": "Absolute Standards",
+    "style": "Generous",
+    "feedback": "Brief & Direct",
+    "borderline": "Benefit of the Doubt",
+    "scores_between_rubric_levels_allowed": false
+  },
+  "course_material_policy": "source_grounded_summary_only",
+  "subagent_mode": "auto_when_complex"
+}

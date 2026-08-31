@@ -1,176 +1,81 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1260" height="860" viewBox="0 0 1260 860" role="img" aria-labelledby="title desc">
-  <title id="title">Agentic Canvas to CoEqual Assignment Creation Workflow</title>
-  <desc id="desc">A dynamic guarded workflow: trigger, preflight, Canvas read-only action gate, source-grounded extraction, CoEqual setup, exact rubric mapping, benchmark review, final QA, host-model escalation, and user confirmation before creation.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="620" viewBox="0 0 980 620" role="img" aria-labelledby="title desc">
+  <title id="title">Simple Canvas to CoEqual Assignment Workflow</title>
+  <desc id="desc">A simple read-only workflow: provide Canvas link, read Canvas, prepare CoEqual draft, verify against Canvas, stop and ask if anything is missing, ask before final creation, then create only in CoEqual.</desc>
   <defs>
-    <marker id="arrow" markerWidth="11" markerHeight="11" refX="10" refY="3.5" orient="auto" markerUnits="strokeWidth">
-      <path d="M0,0 L0,7 L10,3.5 z" fill="#334e68"/>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#2d4f6c"/>
     </marker>
-    <marker id="warnArrow" markerWidth="11" markerHeight="11" refX="10" refY="3.5" orient="auto" markerUnits="strokeWidth">
-      <path d="M0,0 L0,7 L10,3.5 z" fill="#b54708"/>
+    <marker id="warnArrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#a44b16"/>
     </marker>
     <style>
-      .bg { fill: #f7fafc; }
-      .title { font: 700 30px Arial, sans-serif; fill: #102033; }
-      .subtitle { font: 400 15px Arial, sans-serif; fill: #526273; }
-      .lane { fill: #ffffff; stroke: #d8e2ec; stroke-width: 1.4; rx: 18; }
-      .laneTitle { font: 700 15px Arial, sans-serif; fill: #425466; }
-      .box { fill: #ffffff; stroke: #b8c7d6; stroke-width: 2; rx: 12; }
-      .safe { fill: #ecfdf3; stroke: #2f855a; stroke-width: 2; rx: 12; }
-      .decision { fill: #f4f0ff; stroke: #7353c7; stroke-width: 2; rx: 12; }
-      .warn { fill: #fff7ed; stroke: #c05621; stroke-width: 2; rx: 12; }
-      .stop { fill: #fff1f2; stroke: #c2410c; stroke-width: 2; rx: 12; }
-      .record { fill: #eef6ff; stroke: #2b6cb0; stroke-width: 2; rx: 12; }
-      .label { font: 700 15px Arial, sans-serif; fill: #102033; }
-      .small { font: 400 12.5px Arial, sans-serif; fill: #4a5b6c; }
-      .tiny { font: 400 11.5px Arial, sans-serif; fill: #66788a; }
-      .arrow { stroke: #334e68; stroke-width: 2.4; fill: none; marker-end: url(#arrow); }
-      .warnLine { stroke: #b54708; stroke-width: 2.2; fill: none; stroke-dasharray: 7 5; marker-end: url(#warnArrow); }
-      .pill { fill: #e6fffa; stroke: #319795; stroke-width: 1.5; rx: 16; }
-      .pillText { font: 700 12px Arial, sans-serif; fill: #285e61; }
+      .bg { fill: #f8fafc; }
+      .title { font: 700 27px Arial, sans-serif; fill: #12263a; }
+      .subtitle { font: 400 15px Arial, sans-serif; fill: #536579; }
+      .box { fill: #ffffff; stroke: #b7c6d6; stroke-width: 2; rx: 10; }
+      .safe { fill: #eefaf1; stroke: #2f855a; stroke-width: 2; rx: 10; }
+      .check { fill: #f3f0ff; stroke: #7353c7; stroke-width: 2; rx: 10; }
+      .stop { fill: #fff7ed; stroke: #c05621; stroke-width: 2; rx: 10; }
+      .done { fill: #edf7ff; stroke: #2b6cb0; stroke-width: 2; rx: 10; }
+      .label { font: 700 17px Arial, sans-serif; fill: #12263a; }
+      .text { font: 400 14px Arial, sans-serif; fill: #44566c; }
+      .small { font: 700 12px Arial, sans-serif; fill: #2f6f44; }
+      .arrow { stroke: #2d4f6c; stroke-width: 2.5; fill: none; marker-end: url(#arrow); }
+      .warnLine { stroke: #a44b16; stroke-width: 2.5; fill: none; marker-end: url(#warnArrow); }
+      .softLine { stroke: #7b8794; stroke-width: 2; fill: none; stroke-dasharray: 5 5; marker-end: url(#arrow); }
     </style>
   </defs>
 
-  <rect class="bg" x="0" y="0" width="1260" height="860"/>
-  <text class="title" x="630" y="46" text-anchor="middle">CoEqual Assignment Creator</text>
-  <text class="subtitle" x="630" y="73" text-anchor="middle">Dynamic agentic workflow with Canvas read-only safeguards, exact rubric mapping, source-grounded material, and staged QA</text>
+  <rect class="bg" width="980" height="620"/>
+  <text class="title" x="490" y="42" text-anchor="middle">Canvas to CoEqual Assignment Workflow</text>
+  <text class="subtitle" x="490" y="68" text-anchor="middle">Accurate, source-grounded setup with Canvas kept read-only</text>
 
-  <rect class="lane" x="35" y="112" width="1190" height="148"/>
-  <text class="laneTitle" x="58" y="139">1. Trigger And Canvas-Safe Extraction</text>
+  <rect class="safe" x="640" y="100" width="265" height="118"/>
+  <text class="label" x="772.5" y="130" text-anchor="middle">Safety Rules</text>
+  <text class="text" x="772.5" y="157" text-anchor="middle">Canvas is read-only</text>
+  <text class="text" x="772.5" y="180" text-anchor="middle">Rubric values stay exact</text>
+  <text class="text" x="772.5" y="203" text-anchor="middle">No unsupported course material</text>
 
-  <rect class="box" x="65" y="165" width="160" height="70"/>
-  <text class="label" x="145" y="192" text-anchor="middle">Trigger</text>
-  <text class="small" x="145" y="213" text-anchor="middle">\createAssignment</text>
-  <text class="tiny" x="145" y="229" text-anchor="middle">Canvas URL</text>
+  <rect class="box" x="85" y="105" width="430" height="62"/>
+  <text class="label" x="300" y="132" text-anchor="middle">1. User Provides Canvas Link</text>
+  <text class="text" x="300" y="153" text-anchor="middle">The Canvas assignment/discussion URL starts the run.</text>
 
-  <rect class="record" x="270" y="165" width="190" height="70"/>
-  <text class="label" x="365" y="192" text-anchor="middle">Preflight</text>
-  <text class="small" x="365" y="213" text-anchor="middle">CoEqual default</text>
-  <text class="tiny" x="365" y="229" text-anchor="middle">dynamic run state</text>
+  <rect class="safe" x="85" y="205" width="430" height="76"/>
+  <text class="label" x="300" y="233" text-anchor="middle">2. Read Canvas Only</text>
+  <text class="text" x="300" y="255" text-anchor="middle">Extract assignment instructions, rubric, points, and linked material.</text>
+  <text class="small" x="300" y="273" text-anchor="middle">No edit, save, publish, grade, upload, reply, or delete actions.</text>
 
-  <rect class="decision" x="505" y="154" width="210" height="92"/>
-  <text class="label" x="610" y="184" text-anchor="middle">Canvas Action Gate</text>
-  <text class="small" x="610" y="206" text-anchor="middle">classify every action</text>
-  <text class="tiny" x="610" y="226" text-anchor="middle">read-only safe or stop</text>
+  <rect class="box" x="85" y="319" width="430" height="76"/>
+  <text class="label" x="300" y="347" text-anchor="middle">3. Prepare CoEqual Draft</text>
+  <text class="text" x="300" y="369" text-anchor="middle">Enter title, assignment type, total points, exact rubric,</text>
+  <text class="text" x="300" y="388" text-anchor="middle">course material context, and instructor grading notes.</text>
 
-  <rect class="safe" x="760" y="165" width="190" height="70"/>
-  <text class="label" x="855" y="192" text-anchor="middle">Canvas Reader</text>
-  <text class="small" x="855" y="213" text-anchor="middle">prompt, rubric, links</text>
-  <text class="tiny" x="855" y="229" text-anchor="middle">no Canvas edits</text>
+  <rect class="check" x="85" y="433" width="430" height="76"/>
+  <text class="label" x="300" y="461" text-anchor="middle">4. Verify Against Canvas</text>
+  <text class="text" x="300" y="483" text-anchor="middle">Read back CoEqual fields and compare them to Canvas facts.</text>
+  <text class="text" x="300" y="502" text-anchor="middle">Check title, points, rubric criteria, values, and notes.</text>
 
-  <rect class="stop" x="995" y="165" width="180" height="70"/>
-  <text class="label" x="1085" y="192" text-anchor="middle">L3 Hard Stop</text>
-  <text class="small" x="1085" y="213" text-anchor="middle">mutation risk</text>
-  <text class="tiny" x="1085" y="229" text-anchor="middle">ask for read-only source</text>
+  <rect class="check" x="610" y="319" width="285" height="76"/>
+  <text class="label" x="752.5" y="347" text-anchor="middle">5. Anything Missing?</text>
+  <text class="text" x="752.5" y="369" text-anchor="middle">If information is missing or mismatched,</text>
+  <text class="text" x="752.5" y="388" text-anchor="middle">the workflow stops and asks the user.</text>
 
-  <path class="arrow" d="M225 200 L270 200"/>
-  <path class="arrow" d="M460 200 L505 200"/>
-  <path class="arrow" d="M715 200 L760 200"/>
-  <path class="warnLine" d="M715 178 C825 105 1010 110 1085 165"/>
+  <rect class="stop" x="610" y="433" width="285" height="76"/>
+  <text class="label" x="752.5" y="461" text-anchor="middle">Stop And Ask</text>
+  <text class="text" x="752.5" y="483" text-anchor="middle">Do not guess, round, invent,</text>
+  <text class="text" x="752.5" y="502" text-anchor="middle">or edit Canvas to resolve uncertainty.</text>
 
-  <rect class="lane" x="35" y="290" width="1190" height="148"/>
-  <text class="laneTitle" x="58" y="317">2. Course Material And Recovery</text>
+  <rect class="done" x="305" y="542" width="370" height="54"/>
+  <text class="label" x="490" y="565" text-anchor="middle">6. Ask Before Final Create</text>
+  <text class="text" x="490" y="586" text-anchor="middle">Create the assignment in CoEqual only after user confirmation.</text>
 
-  <rect class="decision" x="95" y="331" width="220" height="84"/>
-  <text class="label" x="205" y="360" text-anchor="middle">Directed Material?</text>
-  <text class="small" x="205" y="382" text-anchor="middle">accessible read-only</text>
-  <text class="tiny" x="205" y="401" text-anchor="middle">no outside invention</text>
-
-  <rect class="safe" x="375" y="331" width="220" height="84"/>
-  <text class="label" x="485" y="360" text-anchor="middle">Source Grounder</text>
-  <text class="small" x="485" y="382" text-anchor="middle">gist from verified sources</text>
-  <text class="tiny" x="485" y="401" text-anchor="middle">not an answer key by default</text>
-
-  <rect class="warn" x="655" y="331" width="220" height="84"/>
-  <text class="label" x="765" y="360" text-anchor="middle">Record Limitation</text>
-  <text class="small" x="765" y="382" text-anchor="middle">inaccessible material logged</text>
-  <text class="tiny" x="765" y="401" text-anchor="middle">ask user if required</text>
-
-  <rect class="record" x="935" y="331" width="220" height="84"/>
-  <text class="label" x="1045" y="360" text-anchor="middle">Recovery Record</text>
-  <text class="small" x="1045" y="382" text-anchor="middle">run-state schema</text>
-  <text class="tiny" x="1045" y="401" text-anchor="middle">QA log + decision log</text>
-
-  <path class="arrow" d="M855 235 C855 280 205 280 205 331"/>
-  <path class="arrow" d="M315 360 L375 360"/>
-  <path class="arrow" d="M315 390 C455 445 740 445 935 390"/>
-  <path class="arrow" d="M595 373 L935 373"/>
-  <path class="arrow" d="M875 373 L935 373"/>
-
-  <rect class="lane" x="35" y="468" width="1190" height="158"/>
-  <text class="laneTitle" x="58" y="495">3. CoEqual Build With Exact Rubric Truth</text>
-
-  <rect class="box" x="65" y="526" width="180" height="74"/>
-  <text class="label" x="155" y="553" text-anchor="middle">CoEqual Builder</text>
-  <text class="small" x="155" y="574" text-anchor="middle">title, points, type</text>
-  <text class="tiny" x="155" y="592" text-anchor="middle">read back fields</text>
-
-  <rect class="safe" x="300" y="526" width="205" height="74"/>
-  <text class="label" x="402.5" y="553" text-anchor="middle">Rubric Mapper</text>
-  <text class="small" x="402.5" y="574" text-anchor="middle">exact criteria and values</text>
-  <text class="tiny" x="402.5" y="592" text-anchor="middle">no rounding unless source has it</text>
-
-  <rect class="box" x="560" y="526" width="205" height="74"/>
-  <text class="label" x="662.5" y="553" text-anchor="middle">Instructor Notes</text>
-  <text class="small" x="662.5" y="574" text-anchor="middle">lenient interpretation</text>
-  <text class="tiny" x="662.5" y="592" text-anchor="middle">rubric-bound grading</text>
-
-  <rect class="warn" x="820" y="526" width="205" height="74"/>
-  <text class="label" x="922.5" y="553" text-anchor="middle">Benchmark Review</text>
-  <text class="small" x="922.5" y="574" text-anchor="middle">remove unsupported claims</text>
-  <text class="tiny" x="922.5" y="592" text-anchor="middle">example, not template</text>
-
-  <rect class="decision" x="1075" y="526" width="115" height="74"/>
-  <text class="label" x="1132.5" y="553" text-anchor="middle">Final QA</text>
-  <text class="small" x="1132.5" y="574" text-anchor="middle">readback</text>
-  <text class="tiny" x="1132.5" y="592" text-anchor="middle">duplicate check</text>
-
-  <path class="arrow" d="M1045 415 C1045 475 155 475 155 526"/>
-  <path class="arrow" d="M245 563 L300 563"/>
-  <path class="arrow" d="M505 563 L560 563"/>
-  <path class="arrow" d="M765 563 L820 563"/>
-  <path class="arrow" d="M1025 563 L1075 563"/>
-
-  <rect class="lane" x="35" y="656" width="1190" height="148"/>
-  <text class="laneTitle" x="58" y="683">4. Escalation And Final Human Gate</text>
-
-  <rect class="warn" x="85" y="707" width="220" height="74"/>
-  <text class="label" x="195" y="734" text-anchor="middle">Host Model Escalation</text>
-  <text class="small" x="195" y="755" text-anchor="middle">Codex, GPT, Claude, etc.</text>
-  <text class="tiny" x="195" y="773" text-anchor="middle">classify L1/L2/L3</text>
-
-  <rect class="record" x="365" y="707" width="210" height="74"/>
-  <text class="label" x="470" y="734" text-anchor="middle">Safe Fallback</text>
-  <text class="small" x="470" y="755" text-anchor="middle">resume from state</text>
-  <text class="tiny" x="470" y="773" text-anchor="middle">never from memory alone</text>
-
-  <rect class="stop" x="635" y="707" width="190" height="74"/>
-  <text class="label" x="730" y="734" text-anchor="middle">Ask User</text>
-  <text class="small" x="730" y="755" text-anchor="middle">source, rubric, privacy,</text>
-  <text class="tiny" x="730" y="773" text-anchor="middle">or final creation risk</text>
-
-  <rect class="decision" x="885" y="707" width="185" height="74"/>
-  <text class="label" x="977.5" y="734" text-anchor="middle">User Confirmation</text>
-  <text class="small" x="977.5" y="755" text-anchor="middle">explicit approval only</text>
-  <text class="tiny" x="977.5" y="773" text-anchor="middle">before Create assignment</text>
-
-  <rect class="safe" x="1110" y="707" width="90" height="74"/>
-  <text class="label" x="1155" y="734" text-anchor="middle">Create</text>
-  <text class="small" x="1155" y="755" text-anchor="middle">CoEqual</text>
-  <text class="tiny" x="1155" y="773" text-anchor="middle">only</text>
-
-  <path class="warnLine" d="M1132 600 C1132 655 195 650 195 707"/>
-  <path class="arrow" d="M305 744 L365 744"/>
-  <path class="arrow" d="M575 744 C650 640 930 640 1045 415"/>
-  <path class="warnLine" d="M305 765 C420 825 640 825 730 781"/>
-  <path class="arrow" d="M1132 600 C1132 658 978 658 978 707"/>
-  <path class="arrow" d="M1070 744 L1110 744"/>
-
-  <rect class="pill" x="65" y="818" width="315" height="28"/>
-  <text class="pillText" x="222.5" y="837" text-anchor="middle">Canvas is always read-only</text>
-
-  <rect class="pill" x="405" y="818" width="315" height="28"/>
-  <text class="pillText" x="562.5" y="837" text-anchor="middle">Rubric values stay exact</text>
-
-  <rect class="pill" x="745" y="818" width="390" height="28"/>
-  <text class="pillText" x="940" y="837" text-anchor="middle">Final CoEqual creation requires user confirmation</text>
+  <path class="arrow" d="M300 167 L300 205"/>
+  <path class="arrow" d="M300 281 L300 319"/>
+  <path class="arrow" d="M300 395 L300 433"/>
+  <path class="arrow" d="M515 471 C565 471 575 357 610 357"/>
+  <path class="warnLine" d="M752.5 395 L752.5 433"/>
+  <path class="arrow" d="M610 357 C540 357 490 475 490 542"/>
+  <path class="softLine" d="M640 160 C570 160 545 238 515 243"/>
+  <path class="softLine" d="M640 170 C565 215 555 350 515 357"/>
+  <path class="softLine" d="M640 185 C585 250 558 460 515 471"/>
 </svg>

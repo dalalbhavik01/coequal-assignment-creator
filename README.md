@@ -4,6 +4,8 @@ A portable agentic workflow for creating CoEqual assignments from Canvas assignm
 
 This project packages a reusable workflow, Codex skill, portable prompt, and verification checklist for converting Canvas assignment/discussion pages into CoEqual assignments with exact rubric preservation, source-grounded course material, and staged QA before final creation.
 
+To set it up on another device, copy the skill folder or use the portable workflow prompt, configure the target CoEqual course URL, sign in to Canvas and CoEqual in that device's browser, and run `\createAssignment [Canvas assignment link]`.
+
 ## At A Glance
 
 ![Canvas to CoEqual workflow](docs/workflow-diagram.svg)
@@ -167,6 +169,26 @@ Every run verifies:
 5. Let the agent prepare CoEqual.
 6. Review the final QA summary.
 7. Confirm only when ready to click `Create assignment`.
+
+## Setup On Another Device
+
+Use one of these setup paths:
+
+- Codex skill setup: copy `skills/coequal-assignment-creator` into the target Codex account's skills folder.
+- Claude/GPT portable setup: paste `docs/portable-workflow.md` into the target agent as the operating instructions.
+- Shared docs setup: keep the full repo available and point the agent to `README.md`, `docs/portable-workflow.md`, `docs/error-handling.md`, and `docs/canvas-read-only-policy.md`.
+
+Before using the workflow on the new device:
+
+1. Open Canvas and CoEqual in the browser the agent can control.
+2. Sign in manually to both systems.
+3. Copy `config.example.json` to a local/private config file if the environment supports configs.
+4. Replace `default_coequal_course_url` with the intended CoEqual course URL.
+5. Keep `canvas_policy` as `read_only`.
+6. Run `\createAssignment [Canvas assignment link]`.
+7. Review the final QA summary before allowing the agent to create the CoEqual assignment.
+
+Do not store Canvas course links, CoEqual private course IDs, student data, grades, downloads, cookies, or submissions in this repository.
 
 ## Portability
 

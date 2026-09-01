@@ -6,7 +6,9 @@ This project packages a reusable workflow, Codex skill, portable prompt, and ver
 
 To set it up on another device, copy the skill folder or use the portable workflow prompt, configure the target CoEqual course URL, sign in to Canvas and CoEqual in that device's browser, and run `\createAssignment [Canvas assignment link]`.
 
-## At A Glance = simple overview
+## At A Glance
+
+Simple overview.
 
 ![Canvas to CoEqual workflow](docs/workflow-diagram.svg)
 
@@ -62,7 +64,9 @@ The workflow must not:
 
 CoEqual can be prepared and verified, but the final `Create assignment` action should be clicked directly by the user on the CoEqual website.
 
-## Workflow Diagram = detailed agentic flow
+## Workflow Diagram
+
+Detailed agentic flow.
 
 The visual diagram above is the easiest view. The editable Mermaid source is also kept in [docs/workflow-diagram.mmd](docs/workflow-diagram.mmd).
 

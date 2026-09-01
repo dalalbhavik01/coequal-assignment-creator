@@ -65,9 +65,10 @@
   <text class="text" x="752.5" y="483" text-anchor="middle">Do not guess, round, invent,</text>
   <text class="text" x="752.5" y="502" text-anchor="middle">or edit Canvas to resolve uncertainty.</text>
 
-  <rect class="done" x="305" y="542" width="370" height="54"/>
+  <rect class="done" x="260" y="542" width="460" height="64"/>
   <text class="label" x="490" y="565" text-anchor="middle">6. Ask Before Final Create</text>
-  <text class="text" x="490" y="586" text-anchor="middle">Create the assignment in CoEqual only after user confirmation.</text>
+  <text class="text" x="490" y="586" text-anchor="middle">Create the assignment in CoEqual only</text>
+  <text class="text" x="490" y="602" text-anchor="middle">after user confirmation.</text>
 
   <path class="arrow" d="M300 167 L300 205"/>
   <path class="arrow" d="M300 281 L300 319"/>

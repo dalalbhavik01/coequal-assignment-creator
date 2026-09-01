@@ -4,8 +4,6 @@ A portable agentic workflow for creating CoEqual assignments from Canvas assignm
 
 This project packages a reusable workflow, Codex skill, portable prompt, and verification checklist for converting Canvas assignment/discussion pages into CoEqual assignments with exact rubric preservation, source-grounded course material, and staged QA before final creation.
 
-To set it up on another device, copy the skill folder or use the portable workflow prompt, configure the target CoEqual course URL, sign in to Canvas and CoEqual in that device's browser, and run `\createAssignment [Canvas assignment link]`.
-
 ## At A Glance
 
 ![Canvas to CoEqual workflow](docs/workflow-diagram.svg)
@@ -64,12 +62,39 @@ CoEqual can be prepared, but the final `Create assignment` action requires expli
 
 ## Workflow Diagram
 
-The workflow diagram is shown above under **At A Glance** and is also available as standalone source:
+The visual diagram above is the easiest view. The editable Mermaid source is also kept in [docs/workflow-diagram.mmd](docs/workflow-diagram.mmd).
 
-- [Open rendered workflow diagram](docs/workflow-diagram.svg)
-- [Open editable Mermaid source](docs/workflow-diagram.mmd)
+```mermaid
+flowchart LR
+    A["Trigger<br/>\\createAssignment + Canvas URL"] --> B["Preflight<br/>CoEqual default + dynamic run state"]
+    B --> C{"Canvas Action Gate<br/>before every Canvas action"}
+    C -->|read-only safe| D["Canvas Reader<br/>prompt, requirements, rubric, links"]
+    C -->|mutation risk| X["L3 Hard Stop<br/>ask for read-only source"]
 
-GitHub sometimes fails to render Mermaid blocks directly inside README files, so this README uses the rendered SVG image to keep the page reliable.
+    D --> E{"Directed material<br/>accessible read-only?"}
+    E -->|yes| F["Course Material Grounder<br/>source-grounded gist only"]
+    E -->|no| G["Record limitation<br/>do not invent material"]
+    F --> H["Recovery Record<br/>run-state schema + QA log"]
+    G --> H
+
+    H --> I["CoEqual Builder<br/>setup fields"]
+    I --> J["Rubric Mapper<br/>exact criteria, labels, descriptions, values"]
+    J --> K["Instructor Notes<br/>lenient + rubric-bound"]
+    K --> L["Benchmark Reviewer<br/>remove unsupported claims"]
+    L --> M{"Final QA Gate<br/>readback + duplicate check"}
+
+    M -->|verified| N{"User confirms<br/>Create assignment?"}
+    M -->|unverified| Y["Host Model Escalation<br/>classify L1/L2/L3"]
+    Y -->|safe fallback| H
+    Y -->|user decision| Z["Ask user<br/>do not guess"]
+
+    N -->|yes| O["Create in CoEqual<br/>record URL"]
+    N -->|no| P["Stop prepared<br/>no final side effect"]
+
+    D -. "Canvas remains read-only" .-> C
+    J -. "no rounding or in-between scores" .-> M
+    L -. "benchmark is example, not answer key" .-> M
+```
 
 ## Decision Levels
 
@@ -142,26 +167,6 @@ Every run verifies:
 5. Let the agent prepare CoEqual.
 6. Review the final QA summary.
 7. Confirm only when ready to click `Create assignment`.
-
-## Setup On Another Device
-
-Use one of these setup paths:
-
-- Codex skill setup: copy `skills/coequal-assignment-creator` into the target Codex account's skills folder.
-- Claude/GPT portable setup: paste `docs/portable-workflow.md` into the target agent as the operating instructions.
-- Shared docs setup: keep the full repo available and point the agent to `README.md`, `docs/portable-workflow.md`, `docs/error-handling.md`, and `docs/canvas-read-only-policy.md`.
-
-Before using the workflow on the new device:
-
-1. Open Canvas and CoEqual in the browser the agent can control.
-2. Sign in manually to both systems.
-3. Copy `config.example.json` to a local/private config file if the environment supports configs.
-4. Replace `default_coequal_course_url` with the intended CoEqual course URL.
-5. Keep `canvas_policy` as `read_only`.
-6. Run `\createAssignment [Canvas assignment link]`.
-7. Review the final QA summary before allowing the agent to create the CoEqual assignment.
-
-Do not store Canvas course links, CoEqual private course IDs, student data, grades, downloads, cookies, or submissions in this repository.
 
 ## Portability
 

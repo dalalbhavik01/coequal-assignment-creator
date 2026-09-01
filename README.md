@@ -62,39 +62,14 @@ CoEqual can be prepared, but the final `Create assignment` action requires expli
 
 ## Workflow Diagram
 
-The visual diagram above is the easiest view. The editable Mermaid source is also kept in [docs/workflow-diagram.mmd](docs/workflow-diagram.mmd).
+The visual diagram above is the easiest view.
 
-```mermaid
-flowchart LR
-    A["Trigger<br/>\\createAssignment + Canvas URL"] --> B["Preflight<br/>CoEqual default + dynamic run state"]
-    B --> C{"Canvas Action Gate<br/>before every Canvas action"}
-    C -->|read-only safe| D["Canvas Reader<br/>prompt, requirements, rubric, links"]
-    C -->|mutation risk| X["L3 Hard Stop<br/>ask for read-only source"]
+The editable Mermaid source is kept separately here:
 
-    D --> E{"Directed material<br/>accessible read-only?"}
-    E -->|yes| F["Course Material Grounder<br/>source-grounded gist only"]
-    E -->|no| G["Record limitation<br/>do not invent material"]
-    F --> H["Recovery Record<br/>run-state schema + QA log"]
-    G --> H
+- [Open editable Mermaid source](docs/workflow-diagram.mmd)
+- [Open rendered SVG diagram](docs/workflow-diagram.svg)
 
-    H --> I["CoEqual Builder<br/>setup fields"]
-    I --> J["Rubric Mapper<br/>exact criteria, labels, descriptions, values"]
-    J --> K["Instructor Notes<br/>lenient + rubric-bound"]
-    K --> L["Benchmark Reviewer<br/>remove unsupported claims"]
-    L --> M{"Final QA Gate<br/>readback + duplicate check"}
-
-    M -->|verified| N{"User confirms<br/>Create assignment?"}
-    M -->|unverified| Y["Host Model Escalation<br/>classify L1/L2/L3"]
-    Y -->|safe fallback| H
-    Y -->|user decision| Z["Ask user<br/>do not guess"]
-
-    N -->|yes| O["Create in CoEqual<br/>record URL"]
-    N -->|no| P["Stop prepared<br/>no final side effect"]
-
-    D -. "Canvas remains read-only" .-> C
-    J -. "no rounding or in-between scores" .-> M
-    L -. "benchmark is example, not answer key" .-> M
-```
+Note: The Mermaid source is linked separately because GitHub may fail to render complex Mermaid blocks directly inside the README.
 
 ## Decision Levels
 

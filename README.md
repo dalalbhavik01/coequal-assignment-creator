@@ -67,7 +67,7 @@ CoEqual can be prepared, but the final `Create assignment` action requires expli
 The visual diagram above shows the simple working flow. The detailed error handling and edge cases are kept in the supporting docs. The editable Mermaid source is also kept in [docs/workflow-diagram.mmd](docs/workflow-diagram.mmd).
 
 ```mermaid
-flowchart TD
+flowchart LR
     A["1. User provides Canvas assignment link"]
     B["2. Read Canvas only<br/>assignment instructions, rubric, linked material"]
     C["3. Prepare CoEqual draft<br/>title, points, type, exact rubric, grading notes"]

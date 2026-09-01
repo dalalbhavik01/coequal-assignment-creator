@@ -64,27 +64,12 @@ CoEqual can be prepared, but the final `Create assignment` action requires expli
 
 ## Workflow Diagram
 
-The visual diagram above shows the simple working flow. The detailed error handling and edge cases are kept in the supporting docs. The editable Mermaid source is also kept in [docs/workflow-diagram.mmd](docs/workflow-diagram.mmd).
+The workflow diagram is shown above under **At A Glance** and is also available as standalone source:
 
-```mermaid
-flowchart LR
-    A["1. User provides Canvas assignment link"]
-    B["2. Read Canvas only<br/>assignment instructions, rubric, linked material"]
-    C["3. Prepare CoEqual draft<br/>title, points, type, exact rubric, grading notes"]
-    D["4. Verify the draft<br/>compare CoEqual fields back to Canvas"]
-    E{"5. Is anything missing<br/>or mismatched?"}
-    F["Stop and ask the user<br/>do not guess, round, or edit Canvas"]
-    G["6. Ask user before final Create"]
-    H["Create assignment in CoEqual only"]
-    S["Safety rules<br/>Canvas stays read-only<br/>rubric values stay exact<br/>course material must be source-grounded"]
+- [Open rendered workflow diagram](docs/workflow-diagram.svg)
+- [Open editable Mermaid source](docs/workflow-diagram.mmd)
 
-    A --> B --> C --> D --> E
-    E -->|Yes| F
-    E -->|No| G --> H
-    S -.-> B
-    S -.-> C
-    S -.-> D
-```
+GitHub sometimes fails to render Mermaid blocks directly inside README files, so this README uses the rendered SVG image to keep the page reliable.
 
 ## Decision Levels
 

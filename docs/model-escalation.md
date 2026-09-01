@@ -16,7 +16,7 @@ It must not:
 - Invent course material.
 - Round or change rubric values silently.
 - Edit Canvas to solve an access or extraction problem.
-- Continue to final CoEqual creation when verification failed.
+- Hand off final CoEqual creation when verification failed.
 
 ## Escalation Input
 
@@ -32,13 +32,13 @@ Use this structure whenever the workflow needs smart error handling:
     "[read-only retry]",
     "[use local recovery record]",
     "[ask user for source]",
-    "[stop before creation]"
+    "[stop before user handoff]"
   ],
   "forbidden_actions": [
     "edit Canvas",
     "invent missing content",
     "change rubric values silently",
-    "click final Create assignment without confirmation"
+    "click final Create assignment yourself"
   ]
 }
 ```
@@ -76,7 +76,7 @@ Ask the user when:
 - Canvas content cannot be verified in read-only mode.
 - Directed course material is inaccessible and the assignment depends on it.
 - CoEqual changes or fails to preserve entered values.
-- The workflow reaches the final Create assignment action.
+- The workflow reaches the final CoEqual review screen and the user needs to click Create assignment directly.
 
 ## When The Model Can Decide Alone
 

@@ -1,6 +1,6 @@
 {
   "schema_name": "coequal_assignment_creator_run_state",
-  "schema_version": "1.0.0",
+  "schema_version": "1.1.0",
   "stable_defaults_allowed": [
     "coequal_course_url"
   ],
@@ -51,6 +51,7 @@
       "fields_entered": {},
       "readback_verified": false,
       "rubric_total_verified": false,
+      "final_create_clicked_by": null,
       "created": false,
       "created_url": null
     },
@@ -62,7 +63,8 @@
       "course_material_verified": false,
       "coequal_verified": false,
       "benchmark_verified": false,
-      "final_user_confirmation": false
+      "final_user_handoff_complete": false,
+      "user_clicked_final_create": false
     },
     "decision_log": []
   },

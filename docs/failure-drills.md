@@ -20,7 +20,7 @@ Output:
 
 ```json
 {
-  "status": "ready_for_confirmation",
+  "status": "ready_for_user_create_click",
   "decision_log": [
     {
       "scenario": "Directed course material inaccessible",
@@ -62,7 +62,7 @@ Observed:
 Decision:
 
 - Level: L2.
-- Stop before creation.
+- Stop before final user handoff.
 - Do not round.
 
 Output:
@@ -74,7 +74,7 @@ Output:
     {
       "scenario": "CoEqual did not preserve exact Canvas rubric value",
       "decision_level": "L2",
-      "action": "Stopped before final creation",
+      "action": "Stopped before final user handoff",
       "reason": "Changing rubric values would break exact Canvas alignment"
     }
   ]
@@ -97,7 +97,7 @@ Output:
 
 ```json
 {
-  "status": "ready_for_confirmation",
+  "status": "ready_for_user_create_click",
   "decision_log": [
     {
       "scenario": "Generated benchmark included unsupported details",

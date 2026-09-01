@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="980" height="620" viewBox="0 0 980 620" role="img" aria-labelledby="title desc">
   <title id="title">Simple Canvas to CoEqual Assignment Workflow</title>
-  <desc id="desc">A simple read-only workflow: provide Canvas link, read Canvas, prepare CoEqual draft, verify against Canvas, stop and ask if anything is missing, ask before final creation, then create only in CoEqual.</desc>
+  <desc id="desc">A simple read-only workflow: provide Canvas link, read Canvas, prepare CoEqual draft, verify against Canvas, stop and ask if anything is missing, then hand off final creation for the user to click directly in CoEqual.</desc>
   <defs>
     <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
       <path d="M0,0 L0,6 L9,3 z" fill="#2d4f6c"/>
@@ -67,8 +67,8 @@
 
   <rect class="done" x="260" y="542" width="460" height="64"/>
   <text class="label" x="490" y="565" text-anchor="middle">6. Ask Before Final Create</text>
-  <text class="text" x="490" y="586" text-anchor="middle">Create the assignment in CoEqual only</text>
-  <text class="text" x="490" y="602" text-anchor="middle">after user confirmation.</text>
+  <text class="text" x="490" y="586" text-anchor="middle">User clicks Create in CoEqual</text>
+  <text class="text" x="490" y="602" text-anchor="middle">after final review.</text>
 
   <path class="arrow" d="M300 167 L300 205"/>
   <path class="arrow" d="M300 281 L300 319"/>

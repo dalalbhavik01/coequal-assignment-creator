@@ -2,7 +2,7 @@
 
 A portable agentic workflow for creating CoEqual assignments from Canvas assignment links while keeping Canvas strictly read-only.
 
-This project packages a reusable workflow, Codex skill, portable prompt, and verification checklist for converting Canvas assignment/discussion pages into CoEqual assignments with exact rubric preservation, source-grounded course material, and staged QA before final creation.
+This project packages a reusable workflow, Codex skill, portable prompt, and verification checklist for converting Canvas assignment/discussion pages into CoEqual assignments with exact rubric preservation, source-grounded course material, and staged QA before handing final creation to the user.
 
 To set it up on another device, copy the skill folder or use the portable workflow prompt, configure the target CoEqual course URL, sign in to Canvas and CoEqual in that device's browser, and run `\createAssignment [Canvas assignment link]`.
 
@@ -10,7 +10,7 @@ To set it up on another device, copy the skill folder or use the portable workfl
 
 ![Canvas to CoEqual workflow](docs/workflow-diagram.svg)
 
-This repository is the operating playbook for a browser-capable AI agent that prepares CoEqual assignments from Canvas links. The workflow reads Canvas only, extracts assignment requirements and rubrics exactly, uses accessible course material without inventing content, fills CoEqual, verifies every critical field, and stops before final creation until the user confirms.
+This repository is the operating playbook for a browser-capable AI agent that prepares CoEqual assignments from Canvas links. The workflow reads Canvas only, extracts assignment requirements and rubrics exactly, uses accessible course material without inventing content, fills CoEqual, verifies every critical field, and stops on the CoEqual review screen so the user can click `Create assignment` directly.
 
 ## What It Does
 
@@ -23,7 +23,7 @@ This repository is the operating playbook for a browser-capable AI agent that pr
 - Escalates errors through the model currently running the workflow, using a structured decision contract.
 - Uses a framework-neutral agentic architecture: dynamic state, guardrails, checkpoints, specialist agents, and human-in-the-loop gates.
 - Applies a comprehensive error matrix and a Canvas action gate before every Canvas interaction.
-- Stops before final CoEqual creation until the user confirms.
+- Hands off final CoEqual creation to the user on the CoEqual review screen.
 - Records a decision log and recovery artifacts for every run.
 
 ## Primary Trigger
@@ -43,7 +43,7 @@ For Claude or another browser-capable agent:
 ```text
 Run the Canvas-to-CoEqual assignment workflow for this Canvas link: [Canvas assignment link]
 Default CoEqual course: [CoEqual course URL]
-Canvas must remain read-only. Stop before final CoEqual creation.
+Canvas must remain read-only. Stop on the final CoEqual review screen and have the user click Create assignment directly.
 ```
 
 ## Safety Promise
@@ -60,7 +60,7 @@ The workflow must not:
 - Upload or delete Canvas files
 - Change due dates, rubrics, modules, discussions, pages, assignments, or SpeedGrader
 
-CoEqual can be prepared, but the final `Create assignment` action requires explicit user confirmation.
+CoEqual can be prepared and verified, but the final `Create assignment` action should be clicked directly by the user on the CoEqual website.
 
 ## Workflow Diagram
 
@@ -85,13 +85,13 @@ flowchart LR
     K --> L["Benchmark Reviewer<br/>remove unsupported claims"]
     L --> M{"Final QA Gate<br/>readback + duplicate check"}
 
-    M -->|verified| N{"User confirms<br/>Create assignment?"}
+    M -->|verified| N{"User reviews in CoEqual<br/>and clicks Create?"}
     M -->|unverified| Y["Host Model Escalation<br/>classify L1/L2/L3"]
     Y -->|safe fallback| H
     Y -->|user decision| Z["Ask user<br/>do not guess"]
 
-    N -->|yes| O["Create in CoEqual<br/>record URL"]
-    N -->|no| P["Stop prepared<br/>no final side effect"]
+    N -->|user clicks| O["Created in CoEqual<br/>record URL"]
+    N -->|not ready| P["Stop prepared<br/>no final side effect"]
 
     D -. "Canvas remains read-only" .-> C
     J -. "no rounding or in-between scores" .-> M
@@ -138,6 +138,8 @@ Every run verifies:
 |-- README.md
 |-- config.example.json
 |-- docs/
+|   |-- workflow-diagram.svg
+|   |-- workflow-diagram.mmd
 |   |-- portable-workflow.md
 |   |-- verification-checklist.md
 |   |-- error-handling.md
@@ -168,7 +170,7 @@ Every run verifies:
 4. Let the agent extract Canvas requirements and rubric read-only.
 5. Let the agent prepare CoEqual.
 6. Review the final QA summary.
-7. Confirm only when ready to click `Create assignment`.
+7. On the CoEqual review screen, click `Create assignment` directly when ready.
 
 ## Setup On Another Device
 
@@ -186,7 +188,7 @@ Before using the workflow on the new device:
 4. Replace `default_coequal_course_url` with the intended CoEqual course URL.
 5. Keep `canvas_policy` as `read_only`.
 6. Run `\createAssignment [Canvas assignment link]`.
-7. Review the final QA summary before allowing the agent to create the CoEqual assignment.
+7. Review the final QA summary and click `Create assignment` directly on the CoEqual review screen when ready.
 
 Do not store Canvas course links, CoEqual private course IDs, student data, grades, downloads, cookies, or submissions in this repository.
 
@@ -197,8 +199,8 @@ This workflow is not tied to one model, browser, account, course, or local machi
 - For Codex: copy `skills/coequal-assignment-creator` into the target Codex skills folder.
 - For Claude or another agent: paste `docs/portable-workflow.md` as the operating prompt.
 - Replace `default_coequal_course_url` in `config.example.json`.
-- Keep the Canvas read-only rule and final confirmation gate unchanged.
+- Keep the Canvas read-only rule and final user handoff gate unchanged.
 
 ## Core Principle
 
-The workflow can make smart decisions when the decision does not change grading truth. If a choice affects rubric values, Canvas integrity, source fidelity, privacy, or final creation, the correct decision is to stop and ask the user.
+The workflow can make smart decisions when the decision does not change grading truth. If a choice affects rubric values, Canvas integrity, source fidelity, privacy, or final creation ownership, the correct decision is to stop and hand control to the user.

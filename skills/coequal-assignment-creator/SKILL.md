@@ -19,7 +19,7 @@ If no default CoEqual course URL is configured and the user does not provide one
 
 - Canvas is read-only. Do not edit, save, publish, reply, grade, upload, delete, or change anything in Canvas.
 - CoEqual may be edited only for creating the requested assignment.
-- Stop before clicking the final CoEqual `Create assignment` button and ask for explicit user confirmation.
+- Stop on the final CoEqual review screen, make the browser visible when possible, and ask the user to click `Create assignment` directly on the CoEqual website. Do not click the final create button yourself.
 - Do not hallucinate assignment content, article details, rubric language, course material, grading rules, or student requirements.
 - Preserve Canvas rubric criteria, rating labels, descriptions, and point values exactly.
 - Verify after entry that CoEqual preserved the exact Canvas rubric values and descriptions.
@@ -70,21 +70,21 @@ Then perform the workflow end to end:
 8. Add instructor grading notes.
 9. Review or rewrite benchmark answer to avoid hallucinations.
 10. Run final QA.
-11. Stop and ask before final CoEqual creation.
+11. Stop on the final CoEqual review screen and ask the user to click `Create assignment` directly.
 
 At every stage, record a short verification result in the QA checklist. For normal runs, concise verification is enough; for failures or fallbacks, record the observed input, chosen action, decision level, and resulting output.
 
-## Final Confirmation Wording
+## Final Handoff Wording
 
-Use this wording before the final browser action:
+Use this wording after final QA, with the CoEqual review screen open:
 
 ```text
-I have reviewed the CoEqual setup. Should I click Create assignment now? This will create the assignment in CoEqual, and Canvas has not been edited.
+I have reviewed the CoEqual setup and left the CoEqual review screen open. Please click Create assignment directly in CoEqual when you are ready. Canvas has not been edited.
 ```
 
-## Canvas Integrity Confirmation
+## Canvas Integrity Statement
 
-Repeat this confirmation in the final response:
+Repeat this statement in the final response:
 
 ```text
 Canvas was used only for read-only extraction. I did not edit, save, publish, reply, grade, upload, delete, or change anything in Canvas.

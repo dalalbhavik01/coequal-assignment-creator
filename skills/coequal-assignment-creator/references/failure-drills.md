@@ -21,7 +21,7 @@ Use these drills to test whether the workflow can handle failure without editing
   "canvas_url": "[Canvas assignment URL]",
   "coequal_course_url": "[CoEqual course URL]",
   "canvas_policy": "read_only",
-  "coequal_policy": "prepare_and_stop_before_create",
+  "coequal_policy": "prepare_verify_and_handoff_for_user_create",
   "grading_preferences": {
     "approach": "Absolute Standards",
     "style": "Generous",
@@ -35,7 +35,7 @@ Use these drills to test whether the workflow can handle failure without editing
 
 ```json
 {
-  "status": "ready_for_confirmation | needs_user_input | blocked | created_after_confirmation",
+  "status": "ready_for_user_create_click | needs_user_input | blocked | created_after_user_click",
   "canvas_integrity": {
     "edited_canvas": false,
     "actions_taken": ["read_assignment", "view_rubric"],
@@ -48,7 +48,7 @@ Use these drills to test whether the workflow can handle failure without editing
     "rubric_total_verified": true
   },
   "decision_log": [],
-  "next_required_user_action": "Confirm whether to click Create assignment in CoEqual."
+  "next_required_user_action": "Click Create assignment directly in CoEqual after reviewing the final screen."
 }
 ```
 
@@ -76,7 +76,7 @@ Smart decision:
 Smart decision:
 
 - Decision level: L2.
-- Stop before final creation.
+- Stop before final user handoff.
 - Do not round or accept the changed value silently.
 - Ask the user how to handle it.
 

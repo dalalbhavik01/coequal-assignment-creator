@@ -7,14 +7,14 @@ Use this prompt/runbook in Codex, Claude, or another browser-capable AI agent.
 ```text
 Run the Canvas-to-CoEqual assignment workflow for this Canvas link: [Canvas assignment link]
 Default CoEqual course: [CoEqual course URL]
-Canvas must remain read-only. Stop before final CoEqual creation.
+Canvas must remain read-only. Stop on the final CoEqual review screen and have the user click Create assignment directly.
 ```
 
 ## Core Rules
 
 - Canvas is read-only. Do not edit, save, publish, reply, grade, upload, delete, or change anything in Canvas.
 - CoEqual may be edited only to prepare the requested assignment.
-- Stop before clicking the final CoEqual Create assignment button and ask the user.
+- Stop on the final CoEqual review screen, make it visible when possible, and ask the user to click `Create assignment` directly. Do not click the final button yourself.
 - Do not hallucinate assignment requirements, article details, rubric language, grading rules, or course material.
 - Preserve Canvas rubric criteria, rating labels, descriptions, and point values exactly.
 - Verify every stage by reading values back from the source or target page.
@@ -45,14 +45,14 @@ Use a framework-neutral state machine:
 - Guardrails: classify every Canvas action before doing it; allow only read-only actions.
 - Checkpoints: record source data after Canvas extraction, course material grounding, rubric mapping, CoEqual setup, benchmark review, and final QA.
 - Specialist agents: use subagents for Canvas extraction, course material grounding, rubric QA, benchmark review, and final verification when the assignment is complex.
-- Human-in-the-loop gates: ask the user when rubric/source truth, Canvas integrity, privacy, or final creation is affected.
+- Human-in-the-loop gates: ask the user when rubric/source truth, Canvas integrity, privacy, or final creation ownership is affected.
 
 ## Workflow
 
 1. Preflight:
    - Confirm Canvas URL and CoEqual course URL.
    - Confirm Canvas policy is read-only.
-   - Confirm final CoEqual creation requires user approval.
+   - Confirm final CoEqual creation is a user handoff on the CoEqual review screen.
 
 2. Canvas extraction:
    - Extract title, prompt, overview, guidelines, submission instructions, due structure, rubric criteria, rating labels, rating descriptions, exact point values, and total points.
@@ -96,7 +96,7 @@ Use a framework-neutral state machine:
 
 9. Final QA:
    - Verify CoEqual course, title, total points, setup fields, rubric dimensions, labels, descriptions, point values, total, notes, benchmark, and Canvas integrity.
-   - Stop and ask: "I have reviewed the CoEqual setup. Should I click Create assignment now? This will create the assignment in CoEqual, and Canvas has not been edited."
+   - Stop on the CoEqual final review screen, make the browser visible when possible, and say: "I have reviewed the CoEqual setup and left the CoEqual review screen open. Please click Create assignment directly in CoEqual when you are ready. Canvas has not been edited."
 
 ## Error Decision Levels
 
@@ -120,7 +120,7 @@ When something goes wrong, pass the problem into this decision structure:
   "source_evidence": "[what is verified]",
   "risk_area": "[canvas_integrity | rubric_accuracy | source_truth | privacy | coequal_creation | browser_session]",
   "available_safe_actions": ["[safe option]"],
-  "forbidden_actions": ["edit Canvas", "invent missing content", "change rubric values silently"]
+  "forbidden_actions": ["edit Canvas", "invent missing content", "change rubric values silently", "click final Create assignment yourself"]
 }
 ```
 
@@ -142,7 +142,7 @@ The host model must return:
 
 ```json
 {
-  "status": "ready_for_confirmation | needs_user_input | blocked | created_after_confirmation",
+  "status": "ready_for_user_create_click | needs_user_input | blocked | created_after_user_click",
   "canvas_integrity": {
     "edited_canvas": false,
     "verified_at_stages": ["preflight", "post_extraction", "final_qa"]
@@ -155,6 +155,6 @@ The host model must return:
     "benchmark_verified": true
   },
   "decision_log": [],
-  "next_required_user_action": "[what the user must confirm or provide]"
+  "next_required_user_action": "[what the user must click or provide]"
 }
 ```

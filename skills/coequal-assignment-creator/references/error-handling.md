@@ -15,7 +15,7 @@ No list can predict every possible UI, access, source, or browser failure. For a
 | L2 | Needs user decision | Stop and ask the user before continuing. |
 | L3 | Hard stop | Stop because continuing would risk Canvas integrity, grading accuracy, privacy, or unsupported content. |
 
-Use L1 only when the fallback does not change grading truth. Use L2 or L3 when the issue affects rubric values, source accuracy, Canvas integrity, or final creation.
+Use L1 only when the fallback does not change grading truth. Use L2 or L3 when the issue affects rubric values, source accuracy, Canvas integrity, or final creation ownership.
 
 ## Error Taxonomy
 
@@ -25,7 +25,7 @@ Use L1 only when the fallback does not change grading truth. Use L2 or L3 when t
 | Source mismatch | Wrong assignment, duplicate title, conflicting totals | Stop and ask user. |
 | Extraction uncertainty | Missing rubric, hidden rubric, unreadable prompt, collapsed content | Use read-only routes, then ask if still unavailable. |
 | Source fidelity risk | Unsupported summary claim, generated benchmark detail, outside knowledge | Remove unsupported content. |
-| Rubric integrity risk | Value changed, total mismatch, missing criterion, rounded value | Stop before creation and ask user. |
+| Rubric integrity risk | Value changed, total mismatch, missing criterion, rounded value | Stop before final user handoff and ask user. |
 | Canvas mutation risk | Edit, save, publish, reply, grade, delete, upload | Do not click; find read-only path or ask user. |
 | CoEqual UI drift | Form changed, button missing, default dimensions reappear | Re-inspect and verify before continuing. |
 | Browser/session failure | Tab crash, page refresh, lost form state | Rebuild from local recovery files when complete. |
@@ -48,7 +48,7 @@ Use L1 only when the fallback does not change grading truth. Use L2 or L3 when t
 | CoEqual unexpectedly changes or fails to preserve an exact value during verification | Stop and ask the user how to handle it. Do not round or continue silently. |
 | Directed material is inaccessible | Use Canvas prompt/rubric only and label the material as Canvas-grounded. |
 | CoEqual benchmark hallucinates | Rewrite benchmark using only verified context. |
-| Final Create assignment button is reached | Stop and ask for explicit confirmation. |
+| Final Create assignment button is reached | Stop, show or leave the CoEqual review screen open, and ask the user to click Create assignment directly. |
 
 ## Recovery Artifacts
 

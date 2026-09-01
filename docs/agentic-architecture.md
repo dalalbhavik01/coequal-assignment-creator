@@ -41,13 +41,15 @@ Every run should maintain a state object like this:
   "coequal_setup": {
     "fields_entered": {},
     "readback_verified": false,
+    "final_create_clicked_by": null,
     "created": false
   },
   "qa": {
     "canvas_read_only_verified": false,
     "rubric_verified": false,
     "coequal_verified": false,
-    "final_user_confirmation": false
+    "final_user_handoff_complete": false,
+    "user_clicked_final_create": false
   },
   "decision_log": []
 }
@@ -63,9 +65,9 @@ The workflow can run as one agent for simple assignments. For complex assignment
 | Canvas Reader | Extracts Canvas prompt, requirements, rubric, and links in read-only mode. | Cannot edit, save, publish, reply, grade, upload, delete, or change Canvas. |
 | Course Material Grounder | Summarizes accessible directed materials using source evidence only. | Cannot invent article or course details. |
 | Rubric Mapper | Converts Canvas rubric into CoEqual dimensions and exact levels. | Cannot round, average, or add in-between scores unless the Canvas rubric has them. |
-| CoEqual Builder | Fills CoEqual fields and reads them back. | Cannot click final Create assignment without user confirmation. |
+| CoEqual Builder | Fills CoEqual fields and reads them back. | Cannot click final Create assignment; must leave final click to the user. |
 | Benchmark Reviewer | Removes unsupported benchmark claims and keeps benchmark flexible. | Cannot turn benchmark into the only correct answer. |
-| Final Verifier | Checks all critical fields before final creation. | Cannot pass the run if source/rubric/Canvas checks fail. |
+| Final Verifier | Checks all critical fields before final user handoff. | Cannot pass the run if source/rubric/Canvas checks fail. |
 | Error Escalation Agent | Classifies failures and returns structured recovery decisions. | Cannot override Canvas read-only or source-truth rules. |
 
 ## Canvas Read-Only Guardrail
@@ -115,8 +117,8 @@ Non-negotiable invariants:
 - Rubric labels, descriptions, point values, and totals are exact.
 - Course material is source-grounded.
 - No missing student/assignment work is invented.
-- CoEqual final creation requires explicit user confirmation.
-- Any unverified source/rubric/final-create issue stops the workflow.
+- CoEqual final creation is handed off to the user on the final review screen.
+- Any unverified source/rubric/final-handoff issue stops the workflow.
 
 For unlisted failures, the host model must:
 
@@ -126,7 +128,7 @@ For unlisted failures, the host model must:
 4. List forbidden actions.
 5. Choose L0, L1, L2, or L3.
 6. Record the decision.
-7. Ask the user if the issue affects Canvas integrity, source truth, rubric truth, privacy, or final creation.
+7. Ask the user if the issue affects Canvas integrity, source truth, rubric truth, privacy, or final creation ownership.
 
 ## Framework Mapping
 
@@ -149,7 +151,7 @@ Use these concepts immediately:
 - Checkpoint after every stage.
 - Specialist agents/subagents only when complexity requires them.
 - Structured escalation input/output.
-- Final human confirmation gate.
+- Final user handoff gate.
 - Decision log and verification checklist.
 
 If this becomes a coded product later, implement it first as a LangGraph-style state graph because this task needs checkpoints, resumability, verification gates, and human-in-the-loop approvals.

@@ -11,7 +11,7 @@ The host model is the model running the workflow. If the workflow is running in 
 | L0 | Normal verified path | Yes | No |
 | L1 | Safe fallback that does not change grading truth | Yes | Usually no |
 | L2 | User decision needed | No | Yes |
-| L3 | Hard stop because continuing risks Canvas, source truth, privacy, or final creation | No | Yes |
+| L3 | Hard stop because continuing risks Canvas, source truth, privacy, or final creation ownership | No | Yes |
 
 ## Master Matrix
 
@@ -46,17 +46,17 @@ The host model is the model running the workflow. If the workflow is running in 
 | CoEqual setup | Cohort size unknown | Low grading risk | L1 | Choose best available option from enrollment/context; record assumption. | Pretend exact enrollment is verified. |
 | Rubric mapping | CoEqual default rubric dimensions present | Rubric accuracy | L1 | Remove or replace only if safe and verified. | Leave unrelated dimensions. |
 | Rubric mapping | CoEqual cannot represent rubric shape exactly | Rubric accuracy | L2 | Stop and ask for workaround. | Approximate silently. |
-| Rubric mapping | CoEqual changes a value on readback | Rubric accuracy | L2 | Stop before final creation and ask. | Accept changed value. |
+| Rubric mapping | CoEqual changes a value on readback | Rubric accuracy | L2 | Stop before final user handoff and ask. | Accept changed value. |
 | Rubric mapping | CoEqual allows decimals but Canvas rubric uses whole numbers | Rubric accuracy | L0 | Enter whole numbers exactly. | Add decimal/in-between grades. |
 | Instructor notes | User wants lenient grading | Grading setup | L0 | Add lenient interpretation while staying rubric-bound. | Let leniency override required work. |
 | Instructor notes | User wants no in-between scores | Rubric accuracy | L0 | List exact allowed scores and sum rule. | Tell CoEqual to average freely. |
 | Instructor notes | Prompt is open-ended | Source truth | L0 | Say benchmark is not the only correct answer. | Require one exact answer path. |
 | Benchmark | Generated benchmark includes unsupported details | Source truth | L1 | Remove unsupported details. | Keep hallucinated claims. |
 | Benchmark | Benchmark overfits to one answer | Grading fairness | L1 | Add example-not-template framing. | Make benchmark a hidden answer key. |
-| Final QA | Any source/rubric field unverified | Accuracy | L2 | Ask user or return to read-only verification. | Click Create assignment. |
-| Final QA | User has not confirmed final creation | External side effect | L2 | Ask final confirmation. | Click Create assignment. |
-| Post-create | CoEqual creation succeeds | Reporting | L0 | Record URL/id and Canvas integrity statement. | Claim Canvas was updated. |
-| Post-create | CoEqual creation fails | Recovery | L1/L2 | Record failure, preserve local state, retry only if safe. | Recreate blindly and risk duplicate assignments. |
+| Final QA | Any source/rubric field unverified | Accuracy | L2 | Ask user or return to read-only verification. | Hand off for Create assignment. |
+| Final QA | User has not clicked final creation | External side effect | L2 | Show or leave the CoEqual review screen open and ask the user to click Create assignment directly. | Click Create assignment yourself. |
+| Post-create | CoEqual creation succeeds after user click | Reporting | L0 | Record URL/id and Canvas integrity statement. | Claim Canvas was updated. |
+| Post-create | CoEqual creation fails after user click | Recovery | L1/L2 | Record failure, preserve local state, retry only if safe and user-controlled. | Recreate blindly and risk duplicate assignments. |
 | Privacy | Learner identifiers or grades appear unexpectedly | Privacy | L2 | Minimize, avoid uploading, ask if needed. | Put learner data into public docs. |
 | Browser | Tab crashes or reloads | Recovery | L1 | Rebuild from recovery record. | Re-extract by editing Canvas. |
 | User interruption | User changes instructions mid-run | Control | L0/L2 | Follow newest instruction; preserve state. | Continue old plan. |
@@ -72,24 +72,24 @@ For any failure not listed above:
   "risk_area": "[canvas_integrity | rubric_accuracy | source_truth | privacy | coequal_creation | browser_session | recovery]",
   "verified_facts": ["[fact 1]", "[fact 2]"],
   "safe_options": ["[option 1]", "[option 2]"],
-  "forbidden_options": ["edit Canvas", "invent content", "change rubric silently", "final create without confirmation"],
+  "forbidden_options": ["edit Canvas", "invent content", "change rubric silently", "click final Create assignment yourself"],
   "decision_level": "L0 | L1 | L2 | L3",
   "next_action": "[specific next action]"
 }
 ```
 
-If the issue touches Canvas integrity, source truth, rubric truth, privacy, or final creation, the next action must be to ask the user or stop.
+If the issue touches Canvas integrity, source truth, rubric truth, privacy, or final creation ownership, the next action must be to ask the user or stop.
 
 ## Duplicate Prevention
 
-Before final CoEqual creation:
+Before final CoEqual user handoff:
 
 - Search/inspect the target CoEqual course for an existing assignment with the same title when possible.
 - If a likely duplicate exists, stop and ask.
-- If the browser refreshes after final creation, do not click Create again unless CoEqual clearly shows no assignment was created and the user confirms.
+- If the browser refreshes after the user clicks final creation, do not click Create yourself. Ask the user to verify whether an assignment was created.
 
 ## Recovery Rule
 
-If a run fails after Canvas extraction but before CoEqual creation, restart from the local recovery record, not from memory.
+If a run fails after Canvas extraction but before CoEqual user handoff, restart from the local recovery record, not from memory.
 
 If the recovery record is incomplete or untrusted, re-verify from Canvas in read-only mode.

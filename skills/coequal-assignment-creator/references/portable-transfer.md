@@ -8,7 +8,7 @@ Use this guide to transfer the Canvas-to-CoEqual workflow to another Codex accou
 
 - Trigger phrase or user command
 - Canvas read-only safety rules
-- CoEqual prepare-and-stop-before-create rule
+- CoEqual prepare-verify-and-user-click handoff rule
 - Source-grounded course material policy
 - Exact Canvas rubric mapping rules
 - Instructor grading notes format
@@ -64,7 +64,7 @@ Use:
 ```text
 Run the Canvas-to-CoEqual assignment workflow for this Canvas link: [Canvas assignment link]
 Default CoEqual course: [CoEqual course URL]
-Canvas must remain read-only. Stop before final CoEqual creation.
+Canvas must remain read-only. Stop on the final CoEqual review screen and have the user click Create assignment directly.
 ```
 
 The agent must adapt browser actions to its own tools, but the safety and verification rules stay the same.
@@ -79,7 +79,7 @@ This workflow does not depend on a separate model. The model running the workflo
 
 For every failure, the host model must identify the stage, observed problem, source evidence, risk area, safe actions, forbidden actions, decision level, next action, and whether user input is required.
 
-The host model may continue alone only when the fallback does not change grading truth or Canvas integrity. If rubric values, source truth, privacy, Canvas state, or final CoEqual creation are involved, it must stop and ask the user.
+The host model may continue alone only when the fallback does not change grading truth or Canvas integrity. If rubric values, source truth, privacy, Canvas state, or final creation ownership are involved, it must stop and ask the user.
 
 ## Verification Before First Use
 
@@ -87,7 +87,7 @@ The host model may continue alone only when the fallback does not change grading
 - Confirm it can view but not edit the rubric.
 - Confirm it can open the intended CoEqual course.
 - Confirm it can create local records or another recovery artifact.
-- Confirm it stops before final Create assignment.
+- Confirm it stops on the final CoEqual review screen and asks the user to click Create assignment directly.
 - Confirm it reports Canvas integrity at the end.
 
 ## Portability Rule

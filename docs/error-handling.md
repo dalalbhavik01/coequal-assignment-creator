@@ -11,13 +11,13 @@ When uncertain, stop and ask. Do not guess, invent, round, or edit Canvas.
 | L2 | Needs user decision | Stop and ask the user before continuing. |
 | L3 | Hard stop | Stop because continuing would risk Canvas integrity, grading accuracy, privacy, or unsupported content. |
 
-Use L1 only when the fallback does not change grading truth. Use L2 or L3 when the issue affects rubric values, source accuracy, Canvas integrity, privacy, or final creation.
+Use L1 only when the fallback does not change grading truth. Use L2 or L3 when the issue affects rubric values, source accuracy, Canvas integrity, privacy, or final creation ownership.
 
 ## Host Model Escalation
 
 The model currently running this workflow is responsible for smart error handling. If the workflow runs in Claude, Claude applies the decision levels. If it runs in Codex or ChatGPT, Codex/ChatGPT applies them.
 
-Escalation does not mean guessing or overriding safeguards. The host model must classify the issue, choose the safest allowed action, record the decision, and ask the user when the issue affects Canvas integrity, rubric truth, source accuracy, privacy, or final CoEqual creation.
+Escalation does not mean guessing or overriding safeguards. The host model must classify the issue, choose the safest allowed action, record the decision, and ask the user when the issue affects Canvas integrity, rubric truth, source accuracy, privacy, or final CoEqual creation ownership.
 
 Use [model-escalation.md](model-escalation.md) for the exact input/output contract.
 
@@ -43,7 +43,7 @@ For broader recovery cases, use [comprehensive-error-handling-matrix.md](compreh
 | Source mismatch | Wrong assignment, duplicate assignment title, conflicting totals | Stop and ask user. |
 | Extraction uncertainty | Missing rubric, hidden rubric, unreadable prompt, collapsed content | Use read-only routes, then ask if still unavailable. |
 | Source fidelity risk | Unsupported summary claim, generated benchmark detail, outside knowledge | Remove unsupported content. |
-| Rubric integrity risk | Value changed, total mismatch, missing criterion, rounded value | Stop before creation and ask user. |
+| Rubric integrity risk | Value changed, total mismatch, missing criterion, rounded value | Stop before final user handoff and ask user. |
 | Canvas mutation risk | Edit, save, publish, reply, grade, delete, upload | Do not click; find read-only path or ask user. |
 | CoEqual UI drift | Form changed, button missing, default dimensions reappear | Re-inspect and verify before continuing. |
 | Browser/session failure | Tab crash, page refresh, lost form state | Rebuild from recovery records when complete. |
@@ -65,4 +65,4 @@ For broader recovery cases, use [comprehensive-error-handling-matrix.md](compreh
 | Directed material is copyrighted/long | Summarize briefly in original words. |
 | CoEqual benchmark hallucinates | Rewrite using only verified context. |
 | Browser loses form state | Rebuild from local recovery records. |
-| Final Create assignment button is reached | Stop and ask for explicit confirmation. |
+| Final Create assignment button is reached | Stop, leave the CoEqual review screen open, and ask the user to click Create assignment directly. |

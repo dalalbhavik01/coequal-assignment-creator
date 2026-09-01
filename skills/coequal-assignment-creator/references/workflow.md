@@ -16,7 +16,7 @@ Run configuration:
   "coequal_course_url": "[required unless configured default applies]",
   "output_root": "outputs",
   "canvas_mode": "read_only",
-  "coequal_mode": "prepare_and_stop_before_create",
+  "coequal_mode": "prepare_verify_and_handoff_for_user_create",
   "grading_defaults": {
     "approach": "Absolute Standards",
     "style": "Generous",
@@ -41,9 +41,9 @@ Recommended subagents:
 - Course Material Grounding Subagent: summarizes directed materials from visible/source-supported content only.
 - Rubric QA Subagent: compares Canvas rubric against CoEqual dimensions and scores.
 - Benchmark Review Subagent: removes unsupported benchmark details and prevents answer-key overfitting.
-- Final QA Subagent: reviews the completed setup before the main agent asks for creation approval.
+- Final QA Subagent: reviews the completed setup before the main agent hands final creation to the user.
 
-The main agent remains responsible for resolving conflicts, keeping Canvas read-only, and asking before final CoEqual creation.
+The main agent remains responsible for resolving conflicts, keeping Canvas read-only, verifying the final CoEqual review screen, and handing final creation to the user.
 
 ## Canvas Read-Only Extraction
 
@@ -178,5 +178,5 @@ This benchmark is an example of an Excellent response, not a required template. 
 | Rubric mapping | Criteria count, labels, descriptions, point values, total verified |
 | Instructor notes | Exact-score rule, leniency rule, no-invention rule verified |
 | Benchmark | Source-grounded, flexible, not an answer key |
-| Final QA | Status, decision log, recovery files, final user confirmation request |
-| Post-create, only after confirmation | Assignment URL/id, created status, Canvas unchanged |
+| Final QA | Status, decision log, recovery files, final user handoff request |
+| Post-create, only after user click | Assignment URL/id, created status, Canvas unchanged |

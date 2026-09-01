@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="980" height="620" viewBox="0 0 980 620" role="img" aria-labelledby="title desc">
-  <title id="title">Simple Canvas to CoEqual Assignment Workflow</title>
-  <desc id="desc">A simple read-only workflow: provide Canvas link, read Canvas, prepare CoEqual draft, verify against Canvas, stop and ask if anything is missing, ask before final creation, then create only in CoEqual.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="520" viewBox="0 0 1280 520" role="img" aria-labelledby="title desc">
+  <title id="title">Horizontal Canvas to CoEqual Assignment Workflow</title>
+  <desc id="desc">A horizontal read-only workflow: provide Canvas link, read Canvas only, prepare CoEqual draft, verify against Canvas, stop and ask if anything is missing, ask before final creation, then create only in CoEqual.</desc>
   <defs>
     <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
       <path d="M0,0 L0,6 L9,3 z" fill="#2d4f6c"/>
@@ -10,15 +10,15 @@
     </marker>
     <style>
       .bg { fill: #f8fafc; }
-      .title { font: 700 27px Arial, sans-serif; fill: #12263a; }
+      .title { font: 700 28px Arial, sans-serif; fill: #12263a; }
       .subtitle { font: 400 15px Arial, sans-serif; fill: #536579; }
       .box { fill: #ffffff; stroke: #b7c6d6; stroke-width: 2; rx: 10; }
       .safe { fill: #eefaf1; stroke: #2f855a; stroke-width: 2; rx: 10; }
       .check { fill: #f3f0ff; stroke: #7353c7; stroke-width: 2; rx: 10; }
       .stop { fill: #fff7ed; stroke: #c05621; stroke-width: 2; rx: 10; }
       .done { fill: #edf7ff; stroke: #2b6cb0; stroke-width: 2; rx: 10; }
-      .label { font: 700 17px Arial, sans-serif; fill: #12263a; }
-      .text { font: 400 14px Arial, sans-serif; fill: #44566c; }
+      .label { font: 700 16px Arial, sans-serif; fill: #12263a; }
+      .text { font: 400 13px Arial, sans-serif; fill: #44566c; }
       .small { font: 700 12px Arial, sans-serif; fill: #2f6f44; }
       .arrow { stroke: #2d4f6c; stroke-width: 2.5; fill: none; marker-end: url(#arrow); }
       .warnLine { stroke: #a44b16; stroke-width: 2.5; fill: none; marker-end: url(#warnArrow); }
@@ -26,56 +26,60 @@
     </style>
   </defs>
 
-  <rect class="bg" width="980" height="620"/>
-  <text class="title" x="490" y="42" text-anchor="middle">Canvas to CoEqual Assignment Workflow</text>
-  <text class="subtitle" x="490" y="68" text-anchor="middle">Accurate, source-grounded setup with Canvas kept read-only</text>
+  <rect class="bg" width="1280" height="520"/>
+  <text class="title" x="640" y="42" text-anchor="middle">Canvas to CoEqual Assignment Workflow</text>
+  <text class="subtitle" x="640" y="68" text-anchor="middle">Accurate, source-grounded setup with Canvas kept read-only</text>
 
-  <rect class="safe" x="640" y="100" width="265" height="118"/>
-  <text class="label" x="772.5" y="130" text-anchor="middle">Safety Rules</text>
-  <text class="text" x="772.5" y="157" text-anchor="middle">Canvas is read-only</text>
-  <text class="text" x="772.5" y="180" text-anchor="middle">Rubric values stay exact</text>
-  <text class="text" x="772.5" y="203" text-anchor="middle">No unsupported course material</text>
+  <rect class="box" x="40" y="125" width="170" height="82"/>
+  <text class="label" x="125" y="154" text-anchor="middle">1. Canvas Link</text>
+  <text class="text" x="125" y="178" text-anchor="middle">User provides the</text>
+  <text class="text" x="125" y="196" text-anchor="middle">assignment URL.</text>
 
-  <rect class="box" x="85" y="105" width="430" height="62"/>
-  <text class="label" x="300" y="132" text-anchor="middle">1. User Provides Canvas Link</text>
-  <text class="text" x="300" y="153" text-anchor="middle">The Canvas assignment/discussion URL starts the run.</text>
+  <rect class="safe" x="255" y="125" width="190" height="82"/>
+  <text class="label" x="350" y="151" text-anchor="middle">2. Read Canvas Only</text>
+  <text class="text" x="350" y="174" text-anchor="middle">Extract instructions, rubric,</text>
+  <text class="text" x="350" y="192" text-anchor="middle">points, and linked material.</text>
 
-  <rect class="safe" x="85" y="205" width="430" height="76"/>
-  <text class="label" x="300" y="233" text-anchor="middle">2. Read Canvas Only</text>
-  <text class="text" x="300" y="255" text-anchor="middle">Extract assignment instructions, rubric, points, and linked material.</text>
-  <text class="small" x="300" y="273" text-anchor="middle">No edit, save, publish, grade, upload, reply, or delete actions.</text>
+  <rect class="box" x="490" y="125" width="205" height="82"/>
+  <text class="label" x="592.5" y="151" text-anchor="middle">3. CoEqual Draft</text>
+  <text class="text" x="592.5" y="174" text-anchor="middle">Title, type, points, exact rubric,</text>
+  <text class="text" x="592.5" y="192" text-anchor="middle">course context, grading notes.</text>
 
-  <rect class="box" x="85" y="319" width="430" height="76"/>
-  <text class="label" x="300" y="347" text-anchor="middle">3. Prepare CoEqual Draft</text>
-  <text class="text" x="300" y="369" text-anchor="middle">Enter title, assignment type, total points, exact rubric,</text>
-  <text class="text" x="300" y="388" text-anchor="middle">course material context, and instructor grading notes.</text>
+  <rect class="check" x="740" y="125" width="190" height="82"/>
+  <text class="label" x="835" y="151" text-anchor="middle">4. Verify Draft</text>
+  <text class="text" x="835" y="174" text-anchor="middle">Compare CoEqual fields</text>
+  <text class="text" x="835" y="192" text-anchor="middle">back to Canvas facts.</text>
 
-  <rect class="check" x="85" y="433" width="430" height="76"/>
-  <text class="label" x="300" y="461" text-anchor="middle">4. Verify Against Canvas</text>
-  <text class="text" x="300" y="483" text-anchor="middle">Read back CoEqual fields and compare them to Canvas facts.</text>
-  <text class="text" x="300" y="502" text-anchor="middle">Check title, points, rubric criteria, values, and notes.</text>
+  <path class="check" d="M1025 113 L1103 166 L1025 219 L947 166 Z"/>
+  <text class="label" x="1025" y="153" text-anchor="middle">5. Missing</text>
+  <text class="label" x="1025" y="172" text-anchor="middle">or mismatched?</text>
+  <text class="text" x="1025" y="194" text-anchor="middle">Check before moving on.</text>
 
-  <rect class="check" x="610" y="319" width="285" height="76"/>
-  <text class="label" x="752.5" y="347" text-anchor="middle">5. Anything Missing?</text>
-  <text class="text" x="752.5" y="369" text-anchor="middle">If information is missing or mismatched,</text>
-  <text class="text" x="752.5" y="388" text-anchor="middle">the workflow stops and asks the user.</text>
+  <rect class="done" x="1140" y="103" width="110" height="126"/>
+  <text class="label" x="1195" y="132" text-anchor="middle">6. Confirm</text>
+  <text class="text" x="1195" y="157" text-anchor="middle">Ask user</text>
+  <text class="text" x="1195" y="175" text-anchor="middle">before final</text>
+  <text class="text" x="1195" y="193" text-anchor="middle">Create.</text>
+  <text class="small" x="1195" y="216" text-anchor="middle">CoEqual only</text>
 
-  <rect class="stop" x="610" y="433" width="285" height="76"/>
-  <text class="label" x="752.5" y="461" text-anchor="middle">Stop And Ask</text>
-  <text class="text" x="752.5" y="483" text-anchor="middle">Do not guess, round, invent,</text>
-  <text class="text" x="752.5" y="502" text-anchor="middle">or edit Canvas to resolve uncertainty.</text>
+  <rect class="stop" x="875" y="305" width="300" height="86"/>
+  <text class="label" x="1025" y="334" text-anchor="middle">Stop And Ask The User</text>
+  <text class="text" x="1025" y="358" text-anchor="middle">Do not guess, round, invent,</text>
+  <text class="text" x="1025" y="377" text-anchor="middle">or edit Canvas to resolve uncertainty.</text>
 
-  <rect class="done" x="305" y="542" width="370" height="54"/>
-  <text class="label" x="490" y="565" text-anchor="middle">6. Ask Before Final Create</text>
-  <text class="text" x="490" y="586" text-anchor="middle">Create the assignment in CoEqual only after user confirmation.</text>
+  <rect class="safe" x="255" y="420" width="790" height="54"/>
+  <text class="label" x="650" y="444" text-anchor="middle">Safety Rules</text>
+  <text class="small" x="650" y="464" text-anchor="middle">Canvas stays read-only | rubric values stay exact | course material must be source-grounded</text>
 
-  <path class="arrow" d="M300 167 L300 205"/>
-  <path class="arrow" d="M300 281 L300 319"/>
-  <path class="arrow" d="M300 395 L300 433"/>
-  <path class="arrow" d="M515 471 C565 471 575 357 610 357"/>
-  <path class="warnLine" d="M752.5 395 L752.5 433"/>
-  <path class="arrow" d="M610 357 C540 357 490 475 490 542"/>
-  <path class="softLine" d="M640 160 C570 160 545 238 515 243"/>
-  <path class="softLine" d="M640 170 C565 215 555 350 515 357"/>
-  <path class="softLine" d="M640 185 C585 250 558 460 515 471"/>
+  <path class="arrow" d="M210 166 L255 166"/>
+  <path class="arrow" d="M445 166 L490 166"/>
+  <path class="arrow" d="M695 166 L740 166"/>
+  <path class="arrow" d="M930 166 L947 166"/>
+  <path class="arrow" d="M1103 166 L1140 166"/>
+  <path class="warnLine" d="M1025 219 L1025 305"/>
+  <text class="text" x="1118" y="150" text-anchor="middle">No</text>
+  <text class="text" x="1040" y="265" text-anchor="middle">Yes</text>
+  <path class="softLine" d="M350 420 C350 350 350 280 350 207"/>
+  <path class="softLine" d="M650 420 C610 350 600 280 592.5 207"/>
+  <path class="softLine" d="M830 420 C840 350 840 280 835 207"/>
 </svg>

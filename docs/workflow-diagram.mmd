@@ -9,9 +9,13 @@ flowchart LR
     H["Create assignment in CoEqual only"]
     S["Safety rules<br/>Canvas stays read-only<br/>rubric values stay exact<br/>course material must be source-grounded"]
 
-    A --> B --> C --> D --> E
+    A --> B
+    B --> C
+    C --> D
+    D --> E
     E -->|Yes| F
-    E -->|No| G --> H
+    E -->|No| G
+    G --> H
     S -.-> B
     S -.-> C
     S -.-> D
